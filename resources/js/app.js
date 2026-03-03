@@ -1,16 +1,16 @@
-import './bootstrap';
-import Alpine from 'alpinejs';
-import collapse from '@alpinejs/collapse';
+import "./bootstrap";
+import Alpine from "alpinejs";
+import collapse from "@alpinejs/collapse";
 
 Alpine.plugin(collapse);
 window.Alpine = Alpine;
 Alpine.start();
 
 // ========== Intersection Observer for Scroll Animations ==========
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add stagger delay if specified
                 const delay = entry.target.dataset.delay || 0;
                 setTimeout(() => {
-                    entry.target.classList.add('active');
+                    entry.target.classList.add("active");
                 }, parseInt(delay));
                 observer.unobserve(entry.target);
             }
@@ -27,43 +27,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Observe all reveal elements
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
-        observer.observe(el);
-    });
+    document
+        .querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale")
+        .forEach((el) => {
+            observer.observe(el);
+        });
 
     // ========== Counter Animation ==========
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const countTo = parseInt(target.dataset.count);
-                if (!countTo) return;
+    const counterObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const countTo = parseInt(target.dataset.count);
+                    if (!countTo) return;
 
-                let current = 0;
-                const increment = countTo / 60;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= countTo) {
-                        current = countTo;
-                        clearInterval(timer);
-                    }
-                    target.textContent = Math.floor(current) + '+';
-                }, 30);
+                    let current = 0;
+                    const increment = countTo / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= countTo) {
+                            current = countTo;
+                            clearInterval(timer);
+                        }
+                        target.textContent = Math.floor(current) + "+";
+                    }, 30);
 
-                counterObserver.unobserve(target);
-            }
-        });
-    }, { threshold: 0.5 });
+                    counterObserver.unobserve(target);
+                }
+            });
+        },
+        { threshold: 0.5 },
+    );
 
-    document.querySelectorAll('[data-count]').forEach((el) => {
+    document.querySelectorAll("[data-count]").forEach((el) => {
         counterObserver.observe(el);
     });
 
     // ========== Smooth anchor scrolling with offset ==========
-    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            const hashIndex = href.indexOf('#');
+    document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            const hashIndex = href.indexOf("#");
             if (hashIndex === -1) return;
 
             const hash = href.substring(hashIndex);
@@ -73,11 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Only prevent default if same page
             const currentPath = window.location.pathname;
             const linkPath = href.substring(0, hashIndex) || currentPath;
-            if (linkPath === currentPath || linkPath === '') {
+            if (linkPath === currentPath || linkPath === "") {
                 e.preventDefault();
                 const offset = 100;
-                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
+                const top =
+                    target.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    offset;
+                window.scrollTo({ top, behavior: "smooth" });
             }
         });
     });

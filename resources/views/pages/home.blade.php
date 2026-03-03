@@ -34,7 +34,15 @@
                     <br>
                     <span class="relative inline-block">
                         Experiences
-                        <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none"><path d="M2 10C50 4 150 0 298 6" stroke="url(#grad1)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="grad1" x1="0" y1="0" x2="300" y2="0"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#d946ef"/></linearGradient></defs></svg>
+                        <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none">
+                            <path d="M2 10C50 4 150 0 298 6" stroke="url(#grad1)" stroke-width="3" stroke-linecap="round" />
+                            <defs>
+                                <linearGradient id="grad1" x1="0" y1="0" x2="300" y2="0">
+                                    <stop stop-color="#3b82f6" />
+                                    <stop offset="1" stop-color="#d946ef" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
                     </span>
                     <br>That Matter.
                 </h1>
@@ -452,9 +460,9 @@
 
             <div class="flex animate-marquee">
                 @foreach(['PHP', 'Laravel', 'WordPress', 'React', 'Node.js', 'Python', 'MySQL', 'MongoDB', 'AWS', 'Docker', 'Android', 'iOS', 'Shopify', 'Magento', 'Vue.js', 'Angular', '.NET', 'Java', 'Firebase', 'PostgreSQL', 'PHP', 'Laravel', 'WordPress', 'React', 'Node.js', 'Python', 'MySQL', 'MongoDB', 'AWS', 'Docker', 'Android', 'iOS', 'Shopify', 'Magento', 'Vue.js', 'Angular', '.NET', 'Java', 'Firebase', 'PostgreSQL'] as $tech)
-                    <div class="flex-shrink-0 mx-3 px-8 py-4 bg-surface-800/50 rounded-xl border border-white/5 hover:border-primary-500/30 hover:bg-surface-800 transition-all duration-300 cursor-default">
-                        <span class="text-sm font-medium text-white/60 whitespace-nowrap">{{ $tech }}</span>
-                    </div>
+                <div class="flex-shrink-0 mx-3 px-8 py-4 bg-surface-800/50 rounded-xl border border-white/5 hover:border-primary-500/30 hover:bg-surface-800 transition-all duration-300 cursor-default">
+                    <span class="text-sm font-medium text-white/60 whitespace-nowrap">{{ $tech }}</span>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -509,34 +517,34 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach([
-                ['Mytokondria', 'Health & Wellness Platform', 'from-blue-500/20 to-cyan-500/20', 'ph-heartbeat', 'Web Application'],
-                ['Al-Hamd Agro Foods', 'E-Commerce Food Products', 'from-green-500/20 to-emerald-500/20', 'ph-leaf', 'E-Commerce'],
-                ['Wavelinx Technologies', 'Corporate Technology Portal', 'from-purple-500/20 to-violet-500/20', 'ph-cpu', 'Web Development'],
-                ['Celfanatic Films', 'Entertainment & Media Site', 'from-red-500/20 to-orange-500/20', 'ph-film-strip', 'Website Design'],
-                ['Bluefish Tales', 'Content & Storytelling Platform', 'from-cyan-500/20 to-blue-500/20', 'ph-book-open', 'CMS Development'],
-                ['National Neonatology Forum', 'Healthcare Organization', 'from-pink-500/20 to-rose-500/20', 'ph-first-aid', 'Web Portal'],
+            ['Mytokondria', 'Health & Wellness Platform', 'from-blue-500/20 to-cyan-500/20', 'ph-heartbeat', 'Web Application'],
+            ['Al-Hamd Agro Foods', 'E-Commerce Food Products', 'from-green-500/20 to-emerald-500/20', 'ph-leaf', 'E-Commerce'],
+            ['Wavelinx Technologies', 'Corporate Technology Portal', 'from-purple-500/20 to-violet-500/20', 'ph-cpu', 'Web Development'],
+            ['Celfanatic Films', 'Entertainment & Media Site', 'from-red-500/20 to-orange-500/20', 'ph-film-strip', 'Website Design'],
+            ['Bluefish Tales', 'Content & Storytelling Platform', 'from-cyan-500/20 to-blue-500/20', 'ph-book-open', 'CMS Development'],
+            ['National Neonatology Forum', 'Healthcare Organization', 'from-pink-500/20 to-rose-500/20', 'ph-first-aid', 'Web Portal'],
             ] as $project)
-                <div class="group relative rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
-                    <div class="aspect-[4/3] bg-gradient-to-br {{ $project[2] }} flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-16 h-16 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                <i class="ph {{ $project[3] }} text-3xl text-white"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-white">{{ $project[0] }}</h3>
+            <div class="group relative rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
+                <div class="aspect-[4/3] bg-gradient-to-br {{ $project[2] }} flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i class="ph {{ $project[3] }} text-3xl text-white"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white">{{ $project[0] }}</h3>
                     </div>
-                    <div class="p-6 bg-surface-900/80 backdrop-blur-sm">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <h4 class="font-semibold text-white text-sm">{{ $project[1] }}</h4>
-                                <span class="text-xs text-primary-400">{{ $project[4] }}</span>
-                            </div>
-                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors">
-                                <i class="ph ph-arrow-up-right text-white/50 group-hover:text-primary-400 transition-colors"></i>
-                            </div>
+                </div>
+                <div class="p-6 bg-surface-900/80 backdrop-blur-sm">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-semibold text-white text-sm">{{ $project[1] }}</h4>
+                            <span class="text-xs text-primary-400">{{ $project[4] }}</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors">
+                            <i class="ph ph-arrow-up-right text-white/50 group-hover:text-primary-400 transition-colors"></i>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
 
@@ -567,26 +575,26 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach([
-                ['The team delivered exactly what we needed — a modern, fast and SEO-friendly website. Their attention to detail was impressive and the project was completed ahead of schedule.', 'Amit Kumar', 'CEO, Tech Solutions', 'AK', 'from-blue-400 to-blue-600'],
-                ['Emages Soft transformed our online presence completely. Our e-commerce sales increased by 180% within just 3 months of launching the new store.', 'Sarah Chen', 'Founder, Fashion Retail', 'SC', 'from-purple-400 to-purple-600'],
-                ['Professional, responsive, and incredibly skilled. They built our custom CRM system that has streamlined our entire operation. Highly recommend!', 'Rahul Sharma', 'Director, Logistics Corp', 'RS', 'from-green-400 to-green-600'],
-                ['The SEO results have been phenomenal. We went from page 5 to page 1 for our key terms. Their digital marketing expertise is top-notch.', 'Priya Patel', 'Marketing Head, EdTech', 'PP', 'from-pink-400 to-pink-600'],
-                ['We trusted them with our complete brand identity redesign and website overhaul. The results exceeded our expectations in every way.', 'Michael Roberts', 'CTO, FinStart', 'MR', 'from-orange-400 to-orange-600'],
-                ['Innovative features, exceptional personal support and a custom admin panel that changed everything for our healthcare platform.', 'Dr. Neha Singh', 'Head, HealthOrg', 'NS', 'from-cyan-400 to-cyan-600'],
+            ['The team delivered exactly what we needed — a modern, fast and SEO-friendly website. Their attention to detail was impressive and the project was completed ahead of schedule.', 'Amit Kumar', 'CEO, Tech Solutions', 'AK', 'from-blue-400 to-blue-600'],
+            ['Emages Soft transformed our online presence completely. Our e-commerce sales increased by 180% within just 3 months of launching the new store.', 'Sarah Chen', 'Founder, Fashion Retail', 'SC', 'from-purple-400 to-purple-600'],
+            ['Professional, responsive, and incredibly skilled. They built our custom CRM system that has streamlined our entire operation. Highly recommend!', 'Rahul Sharma', 'Director, Logistics Corp', 'RS', 'from-green-400 to-green-600'],
+            ['The SEO results have been phenomenal. We went from page 5 to page 1 for our key terms. Their digital marketing expertise is top-notch.', 'Priya Patel', 'Marketing Head, EdTech', 'PP', 'from-pink-400 to-pink-600'],
+            ['We trusted them with our complete brand identity redesign and website overhaul. The results exceeded our expectations in every way.', 'Michael Roberts', 'CTO, FinStart', 'MR', 'from-orange-400 to-orange-600'],
+            ['Innovative features, exceptional personal support and a custom admin panel that changed everything for our healthcare platform.', 'Dr. Neha Singh', 'Head, HealthOrg', 'NS', 'from-cyan-400 to-cyan-600'],
             ] as $testimonial)
-                <div class="p-8 bg-surface-900/50 rounded-2xl border border-white/5 hover:border-white/10 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
-                    <div class="flex items-center gap-1 text-yellow-400 mb-4">
-                        <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i>
-                    </div>
-                    <p class="text-white/60 leading-relaxed mb-6 text-sm">"{{ $testimonial[0] }}"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br {{ $testimonial[4] }} flex items-center justify-center text-xs font-bold text-white">{{ $testimonial[3] }}</div>
-                        <div>
-                            <p class="text-sm font-semibold text-white">{{ $testimonial[1] }}</p>
-                            <p class="text-xs text-white/40">{{ $testimonial[2] }}</p>
-                        </div>
+            <div class="p-8 bg-surface-900/50 rounded-2xl border border-white/5 hover:border-white/10 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
+                <div class="flex items-center gap-1 text-yellow-400 mb-4">
+                    <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i>
+                </div>
+                <p class="text-white/60 leading-relaxed mb-6 text-sm">"{{ $testimonial[0] }}"</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br {{ $testimonial[4] }} flex items-center justify-center text-xs font-bold text-white">{{ $testimonial[3] }}</div>
+                    <div>
+                        <p class="text-sm font-semibold text-white">{{ $testimonial[1] }}</p>
+                        <p class="text-xs text-white/40">{{ $testimonial[2] }}</p>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
@@ -696,9 +704,9 @@
             <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-surface-950 to-transparent z-10"></div>
             <div class="flex animate-marquee items-center" style="animation-duration: 25s;">
                 @foreach(['Mytokondria', 'Al-Hamd Agro', 'Wavelinx Tech', 'Celfanatic Films', 'Bluefish Tales', 'Amicus Juris', 'Ath Ayurdhamah', 'Think OOTB', 'NNF India', 'Mytokondria', 'Al-Hamd Agro', 'Wavelinx Tech', 'Celfanatic Films', 'Bluefish Tales', 'Amicus Juris', 'Ath Ayurdhamah', 'Think OOTB', 'NNF India'] as $client)
-                    <div class="flex-shrink-0 mx-6 px-8 py-4 bg-white/5 rounded-xl">
-                        <span class="text-sm font-medium text-white/30 whitespace-nowrap">{{ $client }}</span>
-                    </div>
+                <div class="flex-shrink-0 mx-6 px-8 py-4 bg-white/5 rounded-xl">
+                    <span class="text-sm font-medium text-white/30 whitespace-nowrap">{{ $client }}</span>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -720,22 +728,22 @@
 
         <div class="space-y-4 reveal" x-data="{ openFaq: null }">
             @foreach([
-                ['What services does Emages Soft offer?', 'We offer a comprehensive suite of IT services including web development, mobile app development, e-commerce solutions, CMS development, SEO, digital marketing, social media optimization, graphic design, and Zoho partnership services. We provide end-to-end solutions from strategy to deployment.'],
-                ['How long does a typical web development project take?', 'Project timelines vary based on scope and complexity. A simple website takes 2-4 weeks, a custom web application 6-12 weeks, and enterprise-level projects 3-6 months. We establish realistic timelines during discovery and work closely with you to ensure on-time delivery.'],
-                ['Do you provide post-delivery support?', 'Absolutely! All our plans include free post-launch support ranging from 3-12 months depending on your package. We also offer flexible prepaid support hours for ongoing maintenance, updates, bug fixes, and performance optimization.'],
-                ['What technologies do you specialize in?', 'We have expertise across multiple platforms and technologies including PHP, Laravel, WordPress, React, Vue.js, Node.js, Python, .NET, Android, iOS, MySQL, MongoDB, AWS, and more. We recommend the best technology stack based on your project requirements.'],
-                ['Can you help improve our existing website?', 'Yes! We offer website redesign, performance optimization, SEO improvements, and feature additions to existing websites. Whether you need a complete overhaul or incremental improvements, our team can help elevate your online presence.'],
-                ['How do you handle project pricing?', 'We offer transparent pricing with no hidden fees. We provide detailed project estimates after understanding your requirements during a free consultation. Payment is typically milestone-based, so you only pay for completed work stages.'],
+            ['What services does Emages Soft offer?', 'We offer a comprehensive suite of IT services including web development, mobile app development, e-commerce solutions, CMS development, SEO, digital marketing, social media optimization, graphic design, and Zoho partnership services. We provide end-to-end solutions from strategy to deployment.'],
+            ['How long does a typical web development project take?', 'Project timelines vary based on scope and complexity. A simple website takes 2-4 weeks, a custom web application 6-12 weeks, and enterprise-level projects 3-6 months. We establish realistic timelines during discovery and work closely with you to ensure on-time delivery.'],
+            ['Do you provide post-delivery support?', 'Absolutely! All our plans include free post-launch support ranging from 3-12 months depending on your package. We also offer flexible prepaid support hours for ongoing maintenance, updates, bug fixes, and performance optimization.'],
+            ['What technologies do you specialize in?', 'We have expertise across multiple platforms and technologies including PHP, Laravel, WordPress, React, Vue.js, Node.js, Python, .NET, Android, iOS, MySQL, MongoDB, AWS, and more. We recommend the best technology stack based on your project requirements.'],
+            ['Can you help improve our existing website?', 'Yes! We offer website redesign, performance optimization, SEO improvements, and feature additions to existing websites. Whether you need a complete overhaul or incremental improvements, our team can help elevate your online presence.'],
+            ['How do you handle project pricing?', 'We offer transparent pricing with no hidden fees. We provide detailed project estimates after understanding your requirements during a free consultation. Payment is typically milestone-based, so you only pay for completed work stages.'],
             ] as $index => $faq)
-                <div class="border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors" x-data>
-                    <button @click="openFaq = openFaq === {{ $index }} ? null : {{ $index }}" class="flex items-center justify-between w-full p-6 text-left">
-                        <span class="text-white font-medium pr-4">{{ $faq[0] }}</span>
-                        <i class="ph ph-plus text-white/40 transition-transform duration-300 flex-shrink-0" :class="openFaq === {{ $index }} ? 'rotate-45 text-primary-400' : ''"></i>
-                    </button>
-                    <div x-show="openFaq === {{ $index }}" x-collapse x-cloak>
-                        <div class="px-6 pb-6 text-white/50 leading-relaxed text-sm">{{ $faq[1] }}</div>
-                    </div>
+            <div class="border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors" x-data>
+                <button @click="openFaq = openFaq === {{ $index }} ? null : {{ $index }}" class="flex items-center justify-between w-full p-6 text-left">
+                    <span class="text-white font-medium pr-4">{{ $faq[0] }}</span>
+                    <i class="ph ph-plus text-white/40 transition-transform duration-300 flex-shrink-0" :class="openFaq === {{ $index }} ? 'rotate-45 text-primary-400' : ''"></i>
+                </button>
+                <div x-show="openFaq === {{ $index }}" x-collapse x-cloak>
+                    <div class="px-6 pb-6 text-white/50 leading-relaxed text-sm">{{ $faq[1] }}</div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
@@ -759,26 +767,26 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach([
-                ['The Future of Web Development: Trends to Watch in 2026', 'Explore the latest web development trends shaping 2026 — from AI-powered interfaces to WebAssembly and edge computing...', 'Mar 1, 2026', '5 min read', 'from-blue-500/20 to-purple-500/20'],
-                ['How SEO Has Evolved: Strategies for Zero-Click Searches', 'Google keeps evolving, and so should your SEO strategy. Learn how to optimize for zero-click searches and featured snippets...', 'Feb 24, 2026', '7 min read', 'from-green-500/20 to-teal-500/20'],
-                ['Best Digital Marketing Tools to Grow Your Business Online', 'Getting customers online is about controlling the customer decision journey. Discover the essential tools for 2026...', 'Feb 18, 2026', '6 min read', 'from-orange-500/20 to-red-500/20'],
+            ['The Future of Web Development: Trends to Watch in 2026', 'Explore the latest web development trends shaping 2026 — from AI-powered interfaces to WebAssembly and edge computing...', 'Mar 1, 2026', '5 min read', 'from-blue-500/20 to-purple-500/20'],
+            ['How SEO Has Evolved: Strategies for Zero-Click Searches', 'Google keeps evolving, and so should your SEO strategy. Learn how to optimize for zero-click searches and featured snippets...', 'Feb 24, 2026', '7 min read', 'from-green-500/20 to-teal-500/20'],
+            ['Best Digital Marketing Tools to Grow Your Business Online', 'Getting customers online is about controlling the customer decision journey. Discover the essential tools for 2026...', 'Feb 18, 2026', '6 min read', 'from-orange-500/20 to-red-500/20'],
             ] as $post)
-                <article class="group rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
-                    <div class="aspect-[16/10] bg-gradient-to-br {{ $post[4] }} flex items-center justify-center p-8">
-                        <h3 class="text-lg font-display font-bold text-white text-center leading-snug group-hover:scale-105 transition-transform">{{ $post[0] }}</h3>
+            <article class="group rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
+                <div class="aspect-[16/10] bg-gradient-to-br {{ $post[4] }} flex items-center justify-center p-8">
+                    <h3 class="text-lg font-display font-bold text-white text-center leading-snug group-hover:scale-105 transition-transform">{{ $post[0] }}</h3>
+                </div>
+                <div class="p-6 bg-surface-900/80">
+                    <div class="flex items-center gap-4 text-xs text-white/30 mb-3">
+                        <span>{{ $post[2] }}</span>
+                        <span>·</span>
+                        <span>{{ $post[3] }}</span>
                     </div>
-                    <div class="p-6 bg-surface-900/80">
-                        <div class="flex items-center gap-4 text-xs text-white/30 mb-3">
-                            <span>{{ $post[2] }}</span>
-                            <span>·</span>
-                            <span>{{ $post[3] }}</span>
-                        </div>
-                        <p class="text-sm text-white/50 leading-relaxed mb-4">{{ $post[1] }}</p>
-                        <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 text-sm text-primary-400 font-medium group-hover:gap-3 transition-all">
-                            Read More <i class="ph ph-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
+                    <p class="text-sm text-white/50 leading-relaxed mb-4">{{ $post[1] }}</p>
+                    <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 text-sm text-primary-400 font-medium group-hover:gap-3 transition-all">
+                        Read More <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
             @endforeach
         </div>
     </div>

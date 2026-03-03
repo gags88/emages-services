@@ -23,42 +23,42 @@
 
 {{-- Services Detail --}}
 @foreach([
-    ['web-development', 'ph-code', 'Web Development', 'primary', 'Custom websites, web applications, and enterprise software solutions built with cutting-edge technologies for maximum performance and scalability.', [
-        ['Software Development', 'End-to-end custom software tailored to your specific business needs and workflows.'],
-        ['Mobile Application Development', 'Native and cross-platform mobile apps for iOS and Android platforms.'],
-        ['Point of Sale Systems', 'Modern POS solutions for retail, restaurant, and hospitality businesses.'],
-        ['CRM Solutions', 'Custom CRM systems to manage customer relationships and boost sales efficiency.'],
-    ]],
-    ['ecommerce', 'ph-shopping-cart', 'E-Commerce Development', 'accent', 'Powerful online stores designed to convert visitors into customers. We build feature-rich e-commerce platforms with seamless checkout experiences.', [
-        ['OpenCart Development', 'Flexible open-source shopping cart solutions with extensive customization.'],
-        ['Magento Development', 'Enterprise-grade e-commerce platforms for large-scale online stores.'],
-        ['Custom Shopping Solutions', 'Bespoke e-commerce platforms tailored to your unique business model.'],
-        ['Payment Integration', 'Secure payment gateway setup — Stripe, PayPal, Razorpay, and more.'],
-    ]],
-    ['cms-development', 'ph-layout', 'CMS Development', 'green', 'Flexible content management systems that give you complete control over your digital content and online presence.', [
-        ['WordPress Development', 'Custom themes, plugins, and full WordPress website development.'],
-        ['Joomla Development', 'Robust Joomla-based websites with advanced features and functionality.'],
-        ['PHP Development', 'Custom PHP applications with clean, maintainable, and scalable code.'],
-        ['.NET Development', 'Enterprise solutions built on the Microsoft .NET framework.'],
-    ]],
-    ['digital-marketing', 'ph-megaphone', 'Digital Marketing', 'pink', 'Comprehensive digital marketing strategies that increase your visibility, drive qualified traffic, and convert leads into loyal customers.', [
-        ['Search Engine Marketing', 'PPC campaigns, display advertising, and email marketing for rapid growth.'],
-        ['Social Media Optimization', 'Facebook, Instagram, YouTube, and Twitter strategies that engage audiences.'],
-        ['Content Marketing', 'High-quality content creation and distribution to build authority and trust.'],
-        ['Email Marketing', 'Targeted email campaigns that nurture leads and drive conversions.'],
-    ]],
-    ['seo', 'ph-magnifying-glass', 'SEO Services', 'orange', 'Data-driven SEO strategies that boost your search engine rankings, increase organic traffic, and deliver sustainable long-term results.', [
-        ['On-Page SEO', 'Content optimization, meta tags, schema markup, and internal linking.'],
-        ['Off-Page SEO', 'Link building, guest posts, directory submissions, and authority building.'],
-        ['Technical SEO', 'Site speed, mobile optimization, crawlability, and core web vitals.'],
-        ['Local SEO', 'Google My Business optimization and local search visibility.'],
-    ]],
-    ['graphic-design', 'ph-palette', 'Graphic Design', 'cyan', 'Stunning visual identities that make your brand memorable. From logos to complete brand systems, we craft designs that communicate your story.', [
-        ['Logo Design', 'Unique, memorable logos that embody your brand identity and values.'],
-        ['Banner Design', 'Eye-catching digital and print banners for campaigns and promotions.'],
-        ['Brochure Design', 'Professional brochures and marketing collateral that impress.'],
-        ['Social Media Creatives', 'Engaging social media graphics that drive engagement and shares.'],
-    ]],
+['web-development', 'ph-code', 'Web Development', 'primary', 'Custom websites, web applications, and enterprise software solutions built with cutting-edge technologies for maximum performance and scalability.', [
+['Software Development', 'End-to-end custom software tailored to your specific business needs and workflows.'],
+['Mobile Application Development', 'Native and cross-platform mobile apps for iOS and Android platforms.'],
+['Point of Sale Systems', 'Modern POS solutions for retail, restaurant, and hospitality businesses.'],
+['CRM Solutions', 'Custom CRM systems to manage customer relationships and boost sales efficiency.'],
+]],
+['ecommerce', 'ph-shopping-cart', 'E-Commerce Development', 'accent', 'Powerful online stores designed to convert visitors into customers. We build feature-rich e-commerce platforms with seamless checkout experiences.', [
+['OpenCart Development', 'Flexible open-source shopping cart solutions with extensive customization.'],
+['Magento Development', 'Enterprise-grade e-commerce platforms for large-scale online stores.'],
+['Custom Shopping Solutions', 'Bespoke e-commerce platforms tailored to your unique business model.'],
+['Payment Integration', 'Secure payment gateway setup — Stripe, PayPal, Razorpay, and more.'],
+]],
+['cms-development', 'ph-layout', 'CMS Development', 'green', 'Flexible content management systems that give you complete control over your digital content and online presence.', [
+['WordPress Development', 'Custom themes, plugins, and full WordPress website development.'],
+['Joomla Development', 'Robust Joomla-based websites with advanced features and functionality.'],
+['PHP Development', 'Custom PHP applications with clean, maintainable, and scalable code.'],
+['.NET Development', 'Enterprise solutions built on the Microsoft .NET framework.'],
+]],
+['digital-marketing', 'ph-megaphone', 'Digital Marketing', 'pink', 'Comprehensive digital marketing strategies that increase your visibility, drive qualified traffic, and convert leads into loyal customers.', [
+['Search Engine Marketing', 'PPC campaigns, display advertising, and email marketing for rapid growth.'],
+['Social Media Optimization', 'Facebook, Instagram, YouTube, and Twitter strategies that engage audiences.'],
+['Content Marketing', 'High-quality content creation and distribution to build authority and trust.'],
+['Email Marketing', 'Targeted email campaigns that nurture leads and drive conversions.'],
+]],
+['seo', 'ph-magnifying-glass', 'SEO Services', 'orange', 'Data-driven SEO strategies that boost your search engine rankings, increase organic traffic, and deliver sustainable long-term results.', [
+['On-Page SEO', 'Content optimization, meta tags, schema markup, and internal linking.'],
+['Off-Page SEO', 'Link building, guest posts, directory submissions, and authority building.'],
+['Technical SEO', 'Site speed, mobile optimization, crawlability, and core web vitals.'],
+['Local SEO', 'Google My Business optimization and local search visibility.'],
+]],
+['graphic-design', 'ph-palette', 'Graphic Design', 'cyan', 'Stunning visual identities that make your brand memorable. From logos to complete brand systems, we craft designs that communicate your story.', [
+['Logo Design', 'Unique, memorable logos that embody your brand identity and values.'],
+['Banner Design', 'Eye-catching digital and print banners for campaigns and promotions.'],
+['Brochure Design', 'Professional brochures and marketing collateral that impress.'],
+['Social Media Creatives', 'Engaging social media graphics that drive engagement and shares.'],
+]],
 ] as $index => $service)
 <section id="{{ $service[0] }}" class="relative py-24 {{ $index % 2 === 0 ? '' : 'bg-surface-900/30' }} overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,13 +71,13 @@
                 <p class="text-lg text-white/50 leading-relaxed mb-8">{{ $service[4] }}</p>
                 <div class="space-y-4">
                     @foreach($service[5] as $sub)
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-800/30 border border-white/5 hover:border-{{ $service[3] }}-500/20 transition-all">
-                            <i class="ph ph-check-circle text-{{ $service[3] }}-400 text-lg mt-0.5"></i>
-                            <div>
-                                <h4 class="font-semibold text-white text-sm">{{ $sub[0] }}</h4>
-                                <p class="text-xs text-white/40 mt-1">{{ $sub[1] }}</p>
-                            </div>
+                    <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-800/30 border border-white/5 hover:border-{{ $service[3] }}-500/20 transition-all">
+                        <i class="ph ph-check-circle text-{{ $service[3] }}-400 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-semibold text-white text-sm">{{ $sub[0] }}</h4>
+                            <p class="text-xs text-white/40 mt-1">{{ $sub[1] }}</p>
                         </div>
+                    </div>
                     @endforeach
                 </div>
                 <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-gradient-to-r from-{{ $service[3] }}-600 to-{{ $service[3] }}-500 text-white font-semibold rounded-full hover:shadow-lg transition-all">
@@ -105,7 +105,7 @@
             <p class="text-lg text-white/50 mb-8">We are an authorized Zoho Workplace partner, helping businesses set up and manage Zoho Mail, Connect, Sheet, Docs, and Sites.</p>
             <div class="flex flex-wrap justify-center gap-3">
                 @foreach(['Zoho Mail', 'Zoho Connect', 'Zoho Sheet', 'Zoho Docs', 'Zoho Sites'] as $zoho)
-                    <span class="px-4 py-2 rounded-full bg-yellow-500/10 text-yellow-400 text-sm font-medium">{{ $zoho }}</span>
+                <span class="px-4 py-2 rounded-full bg-yellow-500/10 text-yellow-400 text-sm font-medium">{{ $zoho }}</span>
                 @endforeach
             </div>
         </div>

@@ -1,8 +1,8 @@
 {{-- Sticky Navigation --}}
 <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-     x-data="{ mobileOpen: false, scrolled: false }"
-     x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-     :class="scrolled ? 'bg-surface-950/90 backdrop-blur-xl shadow-2xl shadow-primary-500/5 border-b border-white/5' : 'bg-transparent'">
+    x-data="{ mobileOpen: false, scrolled: false }"
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+    :class="scrolled ? 'bg-surface-950/90 backdrop-blur-xl shadow-2xl shadow-primary-500/5 border-b border-white/5' : 'bg-transparent'">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -30,26 +30,41 @@
                         <i class="ph ph-caret-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
                     </a>
                     <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
-                         class="absolute top-full left-0 mt-2 w-72 bg-surface-900/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-3 grid gap-1">
+                        class="absolute top-full left-0 mt-2 w-72 bg-surface-900/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-3 grid gap-1">
                         <a href="{{ route('services') }}#web-development" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group/item">
                             <div class="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center"><i class="ph ph-code text-primary-400 text-lg"></i></div>
-                            <div><div class="text-sm font-medium text-white">Web Development</div><div class="text-xs text-white/50">Custom websites & apps</div></div>
+                            <div>
+                                <div class="text-sm font-medium text-white">Web Development</div>
+                                <div class="text-xs text-white/50">Custom websites & apps</div>
+                            </div>
                         </a>
                         <a href="{{ route('services') }}#mobile-apps" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group/item">
                             <div class="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center"><i class="ph ph-device-mobile text-accent-400 text-lg"></i></div>
-                            <div><div class="text-sm font-medium text-white">Mobile Apps</div><div class="text-xs text-white/50">iOS & Android solutions</div></div>
+                            <div>
+                                <div class="text-sm font-medium text-white">Mobile Apps</div>
+                                <div class="text-xs text-white/50">iOS & Android solutions</div>
+                            </div>
                         </a>
                         <a href="{{ route('services') }}#ecommerce" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group/item">
                             <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center"><i class="ph ph-shopping-cart text-green-400 text-lg"></i></div>
-                            <div><div class="text-sm font-medium text-white">E-Commerce</div><div class="text-xs text-white/50">Online store solutions</div></div>
+                            <div>
+                                <div class="text-sm font-medium text-white">E-Commerce</div>
+                                <div class="text-xs text-white/50">Online store solutions</div>
+                            </div>
                         </a>
                         <a href="{{ route('services') }}#digital-marketing" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group/item">
                             <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center"><i class="ph ph-megaphone text-orange-400 text-lg"></i></div>
-                            <div><div class="text-sm font-medium text-white">Digital Marketing</div><div class="text-xs text-white/50">SEO, SEM & social media</div></div>
+                            <div>
+                                <div class="text-sm font-medium text-white">Digital Marketing</div>
+                                <div class="text-xs text-white/50">SEO, SEM & social media</div>
+                            </div>
                         </a>
                         <a href="{{ route('services') }}#graphic-design" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all group/item">
                             <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center"><i class="ph ph-paint-brush text-pink-400 text-lg"></i></div>
-                            <div><div class="text-sm font-medium text-white">Graphic Design</div><div class="text-xs text-white/50">Logos, banners & more</div></div>
+                            <div>
+                                <div class="text-sm font-medium text-white">Graphic Design</div>
+                                <div class="text-xs text-white/50">Logos, banners & more</div>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -81,7 +96,7 @@
 
     {{-- Mobile Menu --}}
     <div x-show="mobileOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4"
-         class="lg:hidden bg-surface-900/98 backdrop-blur-xl border-t border-white/5">
+        class="lg:hidden bg-surface-900/98 backdrop-blur-xl border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 py-6 space-y-2">
             <a href="{{ route('home') }}" class="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all">Home</a>
             <a href="{{ route('about') }}" class="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all">About Us</a>

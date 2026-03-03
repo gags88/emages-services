@@ -46,28 +46,28 @@
         {{-- Blog Grid --}}
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach([
-                ['How SEO Has Evolved: Strategies for Zero-Click Searches', 'Google keeps evolving, and so should your SEO strategy. Learn how to optimize for zero-click searches and featured snippets to maintain visibility in an increasingly competitive landscape.', 'Feb 24, 2026', '7 min read', 'SEO', 'from-green-500/20 to-teal-500/20'],
-                ['Best Digital Marketing Tools to Grow Your Business Online', 'Getting customers online is about controlling the customer decision journey. Discover the essential digital marketing tools every business needs in 2026 to attract, engage, and convert.', 'Feb 18, 2026', '6 min read', 'Marketing', 'from-orange-500/20 to-red-500/20'],
-                ['Why Your Business Needs a Custom Mobile App in 2026', 'Mobile apps are no longer optional — they are essential. Explore the compelling reasons why investing in a custom mobile app can transform your business and customer engagement.', 'Feb 12, 2026', '5 min read', 'Mobile', 'from-purple-500/20 to-pink-500/20'],
-                ['E-Commerce Trends: Building Stores That Convert', 'Conversion is the ultimate metric for e-commerce success. Learn the latest design patterns, checkout optimizations, and personalization strategies that top-performing stores use.', 'Feb 5, 2026', '6 min read', 'E-Commerce', 'from-cyan-500/20 to-blue-500/20'],
-                ['The Complete Guide to WordPress Development in 2026', 'WordPress powers over 40% of the web. This comprehensive guide covers modern WordPress development practices, performance optimization, and security best practices.', 'Jan 28, 2026', '10 min read', 'CMS', 'from-blue-500/20 to-indigo-500/20'],
-                ['Graphic Design Trends That Will Dominate 2026', 'From AI-generated visuals to immersive 3D graphics, discover the design trends that will shape brand identities and digital experiences throughout 2026 and beyond.', 'Jan 20, 2026', '5 min read', 'Design', 'from-pink-500/20 to-rose-500/20'],
+            ['How SEO Has Evolved: Strategies for Zero-Click Searches', 'Google keeps evolving, and so should your SEO strategy. Learn how to optimize for zero-click searches and featured snippets to maintain visibility in an increasingly competitive landscape.', 'Feb 24, 2026', '7 min read', 'SEO', 'from-green-500/20 to-teal-500/20'],
+            ['Best Digital Marketing Tools to Grow Your Business Online', 'Getting customers online is about controlling the customer decision journey. Discover the essential digital marketing tools every business needs in 2026 to attract, engage, and convert.', 'Feb 18, 2026', '6 min read', 'Marketing', 'from-orange-500/20 to-red-500/20'],
+            ['Why Your Business Needs a Custom Mobile App in 2026', 'Mobile apps are no longer optional — they are essential. Explore the compelling reasons why investing in a custom mobile app can transform your business and customer engagement.', 'Feb 12, 2026', '5 min read', 'Mobile', 'from-purple-500/20 to-pink-500/20'],
+            ['E-Commerce Trends: Building Stores That Convert', 'Conversion is the ultimate metric for e-commerce success. Learn the latest design patterns, checkout optimizations, and personalization strategies that top-performing stores use.', 'Feb 5, 2026', '6 min read', 'E-Commerce', 'from-cyan-500/20 to-blue-500/20'],
+            ['The Complete Guide to WordPress Development in 2026', 'WordPress powers over 40% of the web. This comprehensive guide covers modern WordPress development practices, performance optimization, and security best practices.', 'Jan 28, 2026', '10 min read', 'CMS', 'from-blue-500/20 to-indigo-500/20'],
+            ['Graphic Design Trends That Will Dominate 2026', 'From AI-generated visuals to immersive 3D graphics, discover the design trends that will shape brand identities and digital experiences throughout 2026 and beyond.', 'Jan 20, 2026', '5 min read', 'Design', 'from-pink-500/20 to-rose-500/20'],
             ] as $post)
-                <article class="group rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
-                    <div class="aspect-[16/10] bg-gradient-to-br {{ $post[5] }} flex items-center justify-center p-6">
-                        <h3 class="text-lg font-display font-bold text-white text-center leading-snug group-hover:scale-105 transition-transform">{{ $post[0] }}</h3>
+            <article class="group rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 card-hover reveal" data-delay="{{ $loop->index * 100 }}">
+                <div class="aspect-[16/10] bg-gradient-to-br {{ $post[5] }} flex items-center justify-center p-6">
+                    <h3 class="text-lg font-display font-bold text-white text-center leading-snug group-hover:scale-105 transition-transform">{{ $post[0] }}</h3>
+                </div>
+                <div class="p-6 bg-surface-900/80">
+                    <div class="flex items-center gap-3 text-xs text-white/30 mb-3">
+                        <span>{{ $post[2] }}</span><span>·</span><span>{{ $post[3] }}</span>
+                        <span class="ml-auto px-2 py-0.5 rounded bg-primary-500/10 text-primary-400 text-[10px] font-medium">{{ $post[4] }}</span>
                     </div>
-                    <div class="p-6 bg-surface-900/80">
-                        <div class="flex items-center gap-3 text-xs text-white/30 mb-3">
-                            <span>{{ $post[2] }}</span><span>·</span><span>{{ $post[3] }}</span>
-                            <span class="ml-auto px-2 py-0.5 rounded bg-primary-500/10 text-primary-400 text-[10px] font-medium">{{ $post[4] }}</span>
-                        </div>
-                        <p class="text-sm text-white/50 leading-relaxed mb-4 line-clamp-3">{{ $post[1] }}</p>
-                        <a href="#" class="inline-flex items-center gap-2 text-sm text-primary-400 font-medium group-hover:gap-3 transition-all">
-                            Read More <i class="ph ph-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
+                    <p class="text-sm text-white/50 leading-relaxed mb-4 line-clamp-3">{{ $post[1] }}</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-sm text-primary-400 font-medium group-hover:gap-3 transition-all">
+                        Read More <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
             @endforeach
         </div>
 

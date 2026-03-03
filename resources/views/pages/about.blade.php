@@ -26,10 +26,22 @@
 <section class="relative py-16 bg-surface-900/50 border-y border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16">
-            <div class="text-center reveal"><div class="text-4xl font-display font-bold gradient-text mb-2">10+</div><p class="text-sm text-white/50 uppercase tracking-wider">Years Experience</p></div>
-            <div class="text-center reveal"><div class="text-4xl font-display font-bold gradient-text mb-2">150+</div><p class="text-sm text-white/50 uppercase tracking-wider">Happy Clients</p></div>
-            <div class="text-center reveal"><div class="text-4xl font-display font-bold gradient-text mb-2">300+</div><p class="text-sm text-white/50 uppercase tracking-wider">Projects Done</p></div>
-            <div class="text-center reveal"><div class="text-4xl font-display font-bold gradient-text mb-2">15+</div><p class="text-sm text-white/50 uppercase tracking-wider">Countries Served</p></div>
+            <div class="text-center reveal">
+                <div class="text-4xl font-display font-bold gradient-text mb-2">10+</div>
+                <p class="text-sm text-white/50 uppercase tracking-wider">Years Experience</p>
+            </div>
+            <div class="text-center reveal">
+                <div class="text-4xl font-display font-bold gradient-text mb-2">150+</div>
+                <p class="text-sm text-white/50 uppercase tracking-wider">Happy Clients</p>
+            </div>
+            <div class="text-center reveal">
+                <div class="text-4xl font-display font-bold gradient-text mb-2">300+</div>
+                <p class="text-sm text-white/50 uppercase tracking-wider">Projects Done</p>
+            </div>
+            <div class="text-center reveal">
+                <div class="text-4xl font-display font-bold gradient-text mb-2">15+</div>
+                <p class="text-sm text-white/50 uppercase tracking-wider">Countries Served</p>
+            </div>
         </div>
     </div>
 </section>
@@ -48,10 +60,10 @@
                 </p>
                 <div class="grid sm:grid-cols-2 gap-4">
                     @foreach(['Expertise & Experience', 'Customized Solutions', 'Creative Design', 'User-Centric Approach', 'SEO Best Practices', 'Cost-Effective'] as $item)
-                        <div class="flex items-center gap-3 text-sm text-white/50">
-                            <i class="ph ph-check-circle text-primary-400"></i>
-                            {{ $item }}
-                        </div>
+                    <div class="flex items-center gap-3 text-sm text-white/50">
+                        <i class="ph ph-check-circle text-primary-400"></i>
+                        {{ $item }}
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -119,23 +131,23 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach([
-                ['ph-medal', 'Expertise & Experience', 'Highly skilled professionals with extensive experience ensuring highest standards.', 'primary'],
-                ['ph-puzzle-piece', 'Customized Solutions', 'Tailored solutions recognizing your uniqueness and specific business goals.', 'accent'],
-                ['ph-sparkle', 'Creative & Innovative', 'Latest trends and innovative techniques for modern, captivating user experiences.', 'green'],
-                ['ph-users', 'User-Centric Approach', 'Intuitive navigation, seamless UX, and effective engagement for your audience.', 'orange'],
-                ['ph-device-mobile', 'Mobile Friendly', 'Responsive websites adapting seamlessly to all screen sizes and devices.', 'pink'],
-                ['ph-magnifying-glass', 'SEO Optimized', 'Built-in SEO best practices for enhanced visibility and organic traffic.', 'cyan'],
-                ['ph-plugs-connected', 'Integration Ready', 'E-commerce, third-party integrations, and interactive elements seamlessly built in.', 'blue'],
-                ['ph-clock-countdown', 'Timely Delivery', 'Realistic timelines and close collaboration ensuring on-schedule completion.', 'yellow'],
-                ['ph-coins', 'Cost-Effective', 'High quality at transparent pricing, helping you optimize your budget effectively.', 'emerald'],
+            ['ph-medal', 'Expertise & Experience', 'Highly skilled professionals with extensive experience ensuring highest standards.', 'primary'],
+            ['ph-puzzle-piece', 'Customized Solutions', 'Tailored solutions recognizing your uniqueness and specific business goals.', 'accent'],
+            ['ph-sparkle', 'Creative & Innovative', 'Latest trends and innovative techniques for modern, captivating user experiences.', 'green'],
+            ['ph-users', 'User-Centric Approach', 'Intuitive navigation, seamless UX, and effective engagement for your audience.', 'orange'],
+            ['ph-device-mobile', 'Mobile Friendly', 'Responsive websites adapting seamlessly to all screen sizes and devices.', 'pink'],
+            ['ph-magnifying-glass', 'SEO Optimized', 'Built-in SEO best practices for enhanced visibility and organic traffic.', 'cyan'],
+            ['ph-plugs-connected', 'Integration Ready', 'E-commerce, third-party integrations, and interactive elements seamlessly built in.', 'blue'],
+            ['ph-clock-countdown', 'Timely Delivery', 'Realistic timelines and close collaboration ensuring on-schedule completion.', 'yellow'],
+            ['ph-coins', 'Cost-Effective', 'High quality at transparent pricing, helping you optimize your budget effectively.', 'emerald'],
             ] as $item)
-                <div class="p-6 rounded-2xl bg-surface-900/50 border border-white/5 hover:border-{{ $item[3] }}-500/20 card-hover reveal">
-                    <div class="w-12 h-12 rounded-xl bg-{{ $item[3] }}-500/10 flex items-center justify-center mb-4">
-                        <i class="ph {{ $item[0] }} text-xl text-{{ $item[3] }}-400"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold text-white mb-2">{{ $item[1] }}</h4>
-                    <p class="text-sm text-white/40 leading-relaxed">{{ $item[2] }}</p>
+            <div class="p-6 rounded-2xl bg-surface-900/50 border border-white/5 hover:border-{{ $item[3] }}-500/20 card-hover reveal">
+                <div class="w-12 h-12 rounded-xl bg-{{ $item[3] }}-500/10 flex items-center justify-center mb-4">
+                    <i class="ph {{ $item[0] }} text-xl text-{{ $item[3] }}-400"></i>
                 </div>
+                <h4 class="text-lg font-semibold text-white mb-2">{{ $item[1] }}</h4>
+                <p class="text-sm text-white/40 leading-relaxed">{{ $item[2] }}</p>
+            </div>
             @endforeach
         </div>
     </div>

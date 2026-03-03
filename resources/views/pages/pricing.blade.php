@@ -29,40 +29,40 @@
             </h2>
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 @foreach([
-                    ['Starter', '$499', 'project', 'Perfect for small businesses & startups', [
-                        [true, 'Up to 5-page website'], [true, 'Responsive design'], [true, 'Basic SEO setup'], [true, 'Contact form integration'], [true, '3 months free support'], [false, 'Custom features'], [false, 'E-commerce integration'], [false, 'CMS integration']
-                    ], false],
-                    ['Professional', '$1,499', 'project', 'For growing businesses needing more', [
-                        [true, 'Up to 15-page website'], [true, 'Custom design & animations'], [true, 'Advanced SEO optimization'], [true, 'CMS integration'], [true, 'Payment gateway setup'], [true, '6 months free support'], [true, 'Performance optimization'], [false, 'Dedicated project manager']
-                    ], true],
-                    ['Enterprise', 'Custom', '', 'For large-scale operations', [
-                        [true, 'Unlimited pages'], [true, 'Custom web applications'], [true, 'E-commerce solutions'], [true, 'API & third-party integrations'], [true, 'Dedicated project manager'], [true, '12 months priority support'], [true, 'Cloud deployment'], [true, 'Security audit & hardening']
-                    ], false],
+                ['Starter', '$499', 'project', 'Perfect for small businesses & startups', [
+                [true, 'Up to 5-page website'], [true, 'Responsive design'], [true, 'Basic SEO setup'], [true, 'Contact form integration'], [true, '3 months free support'], [false, 'Custom features'], [false, 'E-commerce integration'], [false, 'CMS integration']
+                ], false],
+                ['Professional', '$1,499', 'project', 'For growing businesses needing more', [
+                [true, 'Up to 15-page website'], [true, 'Custom design & animations'], [true, 'Advanced SEO optimization'], [true, 'CMS integration'], [true, 'Payment gateway setup'], [true, '6 months free support'], [true, 'Performance optimization'], [false, 'Dedicated project manager']
+                ], true],
+                ['Enterprise', 'Custom', '', 'For large-scale operations', [
+                [true, 'Unlimited pages'], [true, 'Custom web applications'], [true, 'E-commerce solutions'], [true, 'API & third-party integrations'], [true, 'Dedicated project manager'], [true, '12 months priority support'], [true, 'Cloud deployment'], [true, 'Security audit & hardening']
+                ], false],
                 ] as $plan)
-                    <div class="relative p-8 rounded-2xl bg-surface-900/50 border {{ $plan[5] ? 'border-2 border-primary-500/50 scale-[1.02]' : 'border-white/5 hover:border-white/15' }} card-hover reveal">
-                        @if($plan[5])
-                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full text-xs font-bold text-white">MOST POPULAR</div>
-                        @endif
-                        <div class="mb-8">
-                            <h3 class="text-lg font-display font-bold text-white mb-2">{{ $plan[0] }}</h3>
-                            <p class="text-sm text-white/40 mb-6">{{ $plan[3] }}</p>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-4xl font-display font-bold {{ $plan[5] ? 'gradient-text' : 'text-white' }}">{{ $plan[1] }}</span>
-                                @if($plan[2])<span class="text-white/40 text-sm">/ {{ $plan[2] }}</span>@endif
-                            </div>
+                <div class="relative p-8 rounded-2xl bg-surface-900/50 border {{ $plan[5] ? 'border-2 border-primary-500/50 scale-[1.02]' : 'border-white/5 hover:border-white/15' }} card-hover reveal">
+                    @if($plan[5])
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full text-xs font-bold text-white">MOST POPULAR</div>
+                    @endif
+                    <div class="mb-8">
+                        <h3 class="text-lg font-display font-bold text-white mb-2">{{ $plan[0] }}</h3>
+                        <p class="text-sm text-white/40 mb-6">{{ $plan[3] }}</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-display font-bold {{ $plan[5] ? 'gradient-text' : 'text-white' }}">{{ $plan[1] }}</span>
+                            @if($plan[2])<span class="text-white/40 text-sm">/ {{ $plan[2] }}</span>@endif
                         </div>
-                        <ul class="space-y-3 mb-8">
-                            @foreach($plan[4] as $feature)
-                                <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-white/60' : 'text-white/30' }}">
-                                    <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-400' : 'ph-x-circle text-white/20' }}"></i>
-                                    {{ $feature[1] }}
-                                </li>
-                            @endforeach
-                        </ul>
-                        <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white font-bold hover:shadow-lg hover:shadow-primary-500/25' : 'border border-white/15 text-white font-semibold hover:bg-white/5' }} rounded-full transition-all">
-                            {{ $plan[1] === 'Custom' ? 'Contact Sales' : 'Get Started' }}
-                        </a>
                     </div>
+                    <ul class="space-y-3 mb-8">
+                        @foreach($plan[4] as $feature)
+                        <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-white/60' : 'text-white/30' }}">
+                            <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-400' : 'ph-x-circle text-white/20' }}"></i>
+                            {{ $feature[1] }}
+                        </li>
+                        @endforeach
+                    </ul>
+                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white font-bold hover:shadow-lg hover:shadow-primary-500/25' : 'border border-white/15 text-white font-semibold hover:bg-white/5' }} rounded-full transition-all">
+                        {{ $plan[1] === 'Custom' ? 'Contact Sales' : 'Get Started' }}
+                    </a>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -74,40 +74,40 @@
             </h2>
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 @foreach([
-                    ['Basic SEO', '$299', 'month', 'Essential visibility boost', [
-                        [true, 'Keyword research (20 keywords)'], [true, 'On-page optimization'], [true, 'Monthly reporting'], [true, 'Google Analytics setup'], [false, 'Content creation'], [false, 'Link building']
-                    ], false],
-                    ['Growth', '$799', 'month', 'Comprehensive digital growth', [
-                        [true, 'Everything in Basic SEO'], [true, '50+ keywords targeting'], [true, 'Content creation (4 articles/mo)'], [true, 'Link building strategy'], [true, 'Social media management'], [true, 'Weekly reporting']
-                    ], true],
-                    ['Premium', '$1,499', 'month', 'Full-service marketing', [
-                        [true, 'Everything in Growth'], [true, 'Unlimited keywords'], [true, 'PPC campaign management'], [true, 'Video marketing'], [true, 'Conversion rate optimization'], [true, 'Dedicated account manager']
-                    ], false],
+                ['Basic SEO', '$299', 'month', 'Essential visibility boost', [
+                [true, 'Keyword research (20 keywords)'], [true, 'On-page optimization'], [true, 'Monthly reporting'], [true, 'Google Analytics setup'], [false, 'Content creation'], [false, 'Link building']
+                ], false],
+                ['Growth', '$799', 'month', 'Comprehensive digital growth', [
+                [true, 'Everything in Basic SEO'], [true, '50+ keywords targeting'], [true, 'Content creation (4 articles/mo)'], [true, 'Link building strategy'], [true, 'Social media management'], [true, 'Weekly reporting']
+                ], true],
+                ['Premium', '$1,499', 'month', 'Full-service marketing', [
+                [true, 'Everything in Growth'], [true, 'Unlimited keywords'], [true, 'PPC campaign management'], [true, 'Video marketing'], [true, 'Conversion rate optimization'], [true, 'Dedicated account manager']
+                ], false],
                 ] as $plan)
-                    <div class="relative p-8 rounded-2xl bg-surface-900/50 border {{ $plan[5] ? 'border-2 border-pink-500/50 scale-[1.02]' : 'border-white/5 hover:border-white/15' }} card-hover reveal">
-                        @if($plan[5])
-                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-pink-600 to-accent-600 rounded-full text-xs font-bold text-white">BEST VALUE</div>
-                        @endif
-                        <div class="mb-8">
-                            <h3 class="text-lg font-display font-bold text-white mb-2">{{ $plan[0] }}</h3>
-                            <p class="text-sm text-white/40 mb-6">{{ $plan[3] }}</p>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-4xl font-display font-bold {{ $plan[5] ? 'gradient-text' : 'text-white' }}">{{ $plan[1] }}</span>
-                                <span class="text-white/40 text-sm">/ {{ $plan[2] }}</span>
-                            </div>
+                <div class="relative p-8 rounded-2xl bg-surface-900/50 border {{ $plan[5] ? 'border-2 border-pink-500/50 scale-[1.02]' : 'border-white/5 hover:border-white/15' }} card-hover reveal">
+                    @if($plan[5])
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-pink-600 to-accent-600 rounded-full text-xs font-bold text-white">BEST VALUE</div>
+                    @endif
+                    <div class="mb-8">
+                        <h3 class="text-lg font-display font-bold text-white mb-2">{{ $plan[0] }}</h3>
+                        <p class="text-sm text-white/40 mb-6">{{ $plan[3] }}</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-display font-bold {{ $plan[5] ? 'gradient-text' : 'text-white' }}">{{ $plan[1] }}</span>
+                            <span class="text-white/40 text-sm">/ {{ $plan[2] }}</span>
                         </div>
-                        <ul class="space-y-3 mb-8">
-                            @foreach($plan[4] as $feature)
-                                <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-white/60' : 'text-white/30' }}">
-                                    <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-400' : 'ph-x-circle text-white/20' }}"></i>
-                                    {{ $feature[1] }}
-                                </li>
-                            @endforeach
-                        </ul>
-                        <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-pink-600 to-accent-600 text-white font-bold hover:shadow-lg' : 'border border-white/15 text-white font-semibold hover:bg-white/5' }} rounded-full transition-all">
-                            Get Started
-                        </a>
                     </div>
+                    <ul class="space-y-3 mb-8">
+                        @foreach($plan[4] as $feature)
+                        <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-white/60' : 'text-white/30' }}">
+                            <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-400' : 'ph-x-circle text-white/20' }}"></i>
+                            {{ $feature[1] }}
+                        </li>
+                        @endforeach
+                    </ul>
+                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-pink-600 to-accent-600 text-white font-bold hover:shadow-lg' : 'border border-white/15 text-white font-semibold hover:bg-white/5' }} rounded-full transition-all">
+                        Get Started
+                    </a>
+                </div>
                 @endforeach
             </div>
         </div>
