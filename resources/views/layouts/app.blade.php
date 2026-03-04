@@ -32,7 +32,7 @@
     @yield('styles')
 </head>
 
-<body class="bg-surface-950 text-white font-sans antialiased overflow-x-hidden">
+<body class="bg-white text-surface-800 font-sans antialiased overflow-x-hidden">
 
     {{-- Navigation --}}
     @include('partials.navigation')
@@ -57,7 +57,7 @@
 
     {{-- Back to top --}}
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-        class="fixed bottom-6 left-6 z-50 w-12 h-12 bg-primary-600/80 backdrop-blur-sm rounded-full items-center justify-center shadow-lg hover:bg-primary-500 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none hidden lg:flex"
+        class="fixed bottom-6 left-6 z-50 w-12 h-12 bg-surface-800 rounded-full items-center justify-center shadow-lg hover:bg-surface-700 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none hidden lg:flex"
         style="transition: opacity 0.3s, transform 0.3s;">
         <i class="ph ph-arrow-up text-xl text-white"></i>
     </button>

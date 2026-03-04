@@ -5,17 +5,16 @@
 @section('content')
 
 {{-- Page Hero --}}
-<section class="relative pt-32 pb-20 overflow-hidden">
-    <div class="absolute inset-0 mesh-gradient opacity-50"></div>
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+<section class="relative pt-32 pb-20 overflow-hidden bg-white">
+    <div class="absolute inset-0 hero-gradient"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-400 text-sm font-medium mb-6 animate-fade-in">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 border border-primary-100 text-primary-600 text-sm font-medium mb-6 animate-fade-in">
             <i class="ph ph-sparkle"></i> Our Services
         </span>
-        <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mb-6 animate-slide-up">
+        <h1 class="text-5xl lg:text-6xl font-display font-bold text-surface-900 mb-6 animate-slide-up">
             Expert Solutions for <br><span class="gradient-text">Your Digital Growth</span>
         </h1>
-        <p class="text-xl text-white/50 max-w-3xl mx-auto animate-slide-up delay-200">
+        <p class="text-xl text-surface-500 max-w-3xl mx-auto animate-slide-up delay-200">
             From concept to deployment, we deliver end-to-end digital solutions that drive results.
         </p>
     </div>
@@ -60,33 +59,33 @@
 ['Social Media Creatives', 'Engaging social media graphics that drive engagement and shares.'],
 ]],
 ] as $index => $service)
-<section id="{{ $service[0] }}" class="relative py-24 {{ $index % 2 === 0 ? '' : 'bg-surface-900/30' }} overflow-hidden">
+<section id="{{ $service[0] }}" class="py-24 {{ $index % 2 === 0 ? 'bg-white' : 'bg-surface-50' }} overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-16 items-center {{ $index % 2 !== 0 ? 'lg:flex-row-reverse' : '' }}">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="{{ $index % 2 !== 0 ? 'lg:order-2' : '' }} reveal-left">
-                <div class="w-14 h-14 rounded-2xl bg-{{ $service[3] }}-500/10 flex items-center justify-center mb-6">
-                    <i class="ph {{ $service[1] }} text-2xl text-{{ $service[3] }}-400"></i>
+                <div class="w-14 h-14 rounded-2xl bg-{{ $service[3] }}-50 flex items-center justify-center mb-6">
+                    <i class="ph {{ $service[1] }} text-2xl text-{{ $service[3] }}-600"></i>
                 </div>
-                <h2 class="text-4xl font-display font-bold text-white mb-4">{{ $service[2] }}</h2>
-                <p class="text-lg text-white/50 leading-relaxed mb-8">{{ $service[4] }}</p>
+                <h2 class="text-4xl font-display font-bold text-surface-900 mb-4">{{ $service[2] }}</h2>
+                <p class="text-lg text-surface-500 leading-relaxed mb-8">{{ $service[4] }}</p>
                 <div class="space-y-4">
                     @foreach($service[5] as $sub)
-                    <div class="flex items-start gap-4 p-4 rounded-xl bg-surface-800/30 border border-white/5 hover:border-{{ $service[3] }}-500/20 transition-all">
-                        <i class="ph ph-check-circle text-{{ $service[3] }}-400 text-lg mt-0.5"></i>
+                    <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-200 hover:shadow-sm hover:border-{{ $service[3] }}-200 transition-all">
+                        <i class="ph ph-check-circle text-{{ $service[3] }}-600 text-lg mt-0.5"></i>
                         <div>
-                            <h4 class="font-semibold text-white text-sm">{{ $sub[0] }}</h4>
-                            <p class="text-xs text-white/40 mt-1">{{ $sub[1] }}</p>
+                            <h4 class="font-semibold text-surface-900 text-sm">{{ $sub[0] }}</h4>
+                            <p class="text-xs text-surface-400 mt-1">{{ $sub[1] }}</p>
                         </div>
                     </div>
                     @endforeach
                 </div>
-                <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-gradient-to-r from-{{ $service[3] }}-600 to-{{ $service[3] }}-500 text-white font-semibold rounded-full hover:shadow-lg transition-all">
+                <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-{{ $service[3] }}-600 text-white font-semibold rounded-lg hover:bg-{{ $service[3] }}-700 shadow-sm transition-all">
                     Get a Quote <i class="ph ph-arrow-right"></i>
                 </a>
             </div>
             <div class="{{ $index % 2 !== 0 ? 'lg:order-1' : '' }} reveal-right">
-                <div class="aspect-square rounded-3xl bg-gradient-to-br from-{{ $service[3] }}-500/20 to-{{ $service[3] }}-500/5 border border-white/5 flex items-center justify-center">
-                    <i class="ph {{ $service[1] }} text-[120px] text-{{ $service[3] }}-400/20"></i>
+                <div class="aspect-square rounded-3xl bg-gradient-to-br from-{{ $service[3] }}-50 to-{{ $service[3] }}-100/50 border border-surface-100 flex items-center justify-center">
+                    <i class="ph {{ $service[1] }} text-[120px] text-{{ $service[3] }}-200"></i>
                 </div>
             </div>
         </div>
@@ -95,17 +94,17 @@
 @endforeach
 
 {{-- Zoho Partner Section --}}
-<section class="relative py-24 bg-surface-900/30 overflow-hidden">
+<section class="py-24 bg-surface-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto reveal">
-            <div class="w-14 h-14 mx-auto rounded-2xl bg-yellow-500/10 flex items-center justify-center mb-6">
-                <i class="ph ph-handshake text-2xl text-yellow-400"></i>
+            <div class="w-14 h-14 mx-auto rounded-2xl bg-yellow-50 flex items-center justify-center mb-6">
+                <i class="ph ph-handshake text-2xl text-yellow-600"></i>
             </div>
-            <h2 class="text-4xl font-display font-bold text-white mb-4">Zoho Authorized Partner</h2>
-            <p class="text-lg text-white/50 mb-8">We are an authorized Zoho Workplace partner, helping businesses set up and manage Zoho Mail, Connect, Sheet, Docs, and Sites.</p>
+            <h2 class="text-4xl font-display font-bold text-surface-900 mb-4">Zoho Authorized Partner</h2>
+            <p class="text-lg text-surface-500 mb-8">We are an authorized Zoho Workplace partner, helping businesses set up and manage Zoho Mail, Connect, Sheet, Docs, and Sites.</p>
             <div class="flex flex-wrap justify-center gap-3">
                 @foreach(['Zoho Mail', 'Zoho Connect', 'Zoho Sheet', 'Zoho Docs', 'Zoho Sites'] as $zoho)
-                <span class="px-4 py-2 rounded-full bg-yellow-500/10 text-yellow-400 text-sm font-medium">{{ $zoho }}</span>
+                <span class="px-4 py-2 rounded-full bg-yellow-50 border border-yellow-100 text-yellow-700 text-sm font-medium">{{ $zoho }}</span>
                 @endforeach
             </div>
         </div>

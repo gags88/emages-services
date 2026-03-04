@@ -5,27 +5,27 @@
 @section('content')
 
 {{-- Hero --}}
-<section class="relative pt-32 pb-20 overflow-hidden">
-    <div class="absolute inset-0 mesh-gradient opacity-50"></div>
+<section class="relative pt-32 pb-20 overflow-hidden bg-white">
+    <div class="absolute inset-0 hero-gradient"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 text-green-400 text-sm font-medium mb-6 animate-fade-in">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 border border-green-100 text-green-600 text-sm font-medium mb-6 animate-fade-in">
             <i class="ph ph-tag"></i> Pricing
         </span>
-        <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mb-6 animate-slide-up">
+        <h1 class="text-5xl lg:text-6xl font-display font-bold text-surface-900 mb-6 animate-slide-up">
             Transparent Pricing, <br><span class="gradient-text">Exceptional Value</span>
         </h1>
-        <p class="text-xl text-white/50 max-w-3xl mx-auto animate-slide-up delay-200">Simple, honest pricing for every stage of your business. No hidden fees, no surprises.</p>
+        <p class="text-xl text-surface-500 max-w-3xl mx-auto animate-slide-up delay-200">Simple, honest pricing for every stage of your business. No hidden fees, no surprises.</p>
     </div>
 </section>
 
-{{-- Pricing Toggle --}}
-<section class="relative pb-24" x-data="{ annual: false }">
+{{-- Pricing --}}
+<section class="pb-24 bg-surface-50 pt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Web Development Plans --}}
         <div class="mb-20">
-            <h2 class="text-2xl font-display font-bold text-white text-center mb-12 reveal">
-                <i class="ph ph-code text-primary-400"></i> Web Development Packages
+            <h2 class="text-2xl font-display font-bold text-surface-900 text-center mb-12 reveal">
+                <i class="ph ph-code text-primary-600"></i> Web Development Packages
             </h2>
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 @foreach([
@@ -39,27 +39,27 @@
                 [true, 'Unlimited pages'], [true, 'Custom web applications'], [true, 'E-commerce solutions'], [true, 'API & third-party integrations'], [true, 'Dedicated project manager'], [true, '12 months priority support'], [true, 'Cloud deployment'], [true, 'Security audit & hardening']
                 ], false],
                 ] as $plan)
-                <div class="relative p-8 rounded-2xl bg-surface-900/50 border {{ $plan[5] ? 'border-2 border-primary-500/50 scale-[1.02]' : 'border-white/5 hover:border-white/15' }} card-hover reveal">
+                <div class="relative p-8 rounded-2xl bg-white border {{ $plan[5] ? 'border-2 border-primary-500 shadow-lg' : 'border-surface-200 hover:shadow-md' }} transition-all reveal">
                     @if($plan[5])
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full text-xs font-bold text-white">MOST POPULAR</div>
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary-600 rounded-full text-xs font-bold text-white">MOST POPULAR</div>
                     @endif
                     <div class="mb-8">
-                        <h3 class="text-lg font-display font-bold text-white mb-2">{{ $plan[0] }}</h3>
-                        <p class="text-sm text-white/40 mb-6">{{ $plan[3] }}</p>
+                        <h3 class="text-lg font-display font-bold text-surface-900 mb-2">{{ $plan[0] }}</h3>
+                        <p class="text-sm text-surface-400 mb-6">{{ $plan[3] }}</p>
                         <div class="flex items-baseline gap-1">
-                            <span class="text-4xl font-display font-bold {{ $plan[5] ? 'gradient-text' : 'text-white' }}">{{ $plan[1] }}</span>
-                            @if($plan[2])<span class="text-white/40 text-sm">/ {{ $plan[2] }}</span>@endif
+                            <span class="text-4xl font-display font-bold {{ $plan[5] ? 'text-primary-600' : 'text-surface-900' }}">{{ $plan[1] }}</span>
+                            @if($plan[2])<span class="text-surface-400 text-sm">/ {{ $plan[2] }}</span>@endif
                         </div>
                     </div>
                     <ul class="space-y-3 mb-8">
                         @foreach($plan[4] as $feature)
-                        <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-white/60' : 'text-white/30' }}">
-                            <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-400' : 'ph-x-circle text-white/20' }}"></i>
+                        <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-surface-600' : 'text-surface-300' }}">
+                            <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-500' : 'ph-x-circle text-surface-300' }}"></i>
                             {{ $feature[1] }}
                         </li>
                         @endforeach
                     </ul>
-                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white font-bold hover:shadow-lg hover:shadow-primary-500/25' : 'border border-white/15 text-white font-semibold hover:bg-white/5' }} rounded-full transition-all">
+                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-primary-600 text-white font-bold hover:bg-primary-700 shadow-sm' : 'border border-surface-200 text-surface-700 font-semibold hover:bg-surface-50' }} rounded-lg transition-all">
                         {{ $plan[1] === 'Custom' ? 'Contact Sales' : 'Get Started' }}
                     </a>
                 </div>
@@ -69,8 +69,8 @@
 
         {{-- Digital Marketing Plans --}}
         <div class="mb-20">
-            <h2 class="text-2xl font-display font-bold text-white text-center mb-12 reveal">
-                <i class="ph ph-megaphone text-pink-400"></i> Digital Marketing Packages
+            <h2 class="text-2xl font-display font-bold text-surface-900 text-center mb-12 reveal">
+                <i class="ph ph-megaphone text-pink-600"></i> Digital Marketing Packages
             </h2>
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 @foreach([
@@ -84,27 +84,27 @@
                 [true, 'Everything in Growth'], [true, 'Unlimited keywords'], [true, 'PPC campaign management'], [true, 'Video marketing'], [true, 'Conversion rate optimization'], [true, 'Dedicated account manager']
                 ], false],
                 ] as $plan)
-                <div class="relative p-8 rounded-2xl bg-surface-900/50 border {{ $plan[5] ? 'border-2 border-pink-500/50 scale-[1.02]' : 'border-white/5 hover:border-white/15' }} card-hover reveal">
+                <div class="relative p-8 rounded-2xl bg-white border {{ $plan[5] ? 'border-2 border-pink-500 shadow-lg' : 'border-surface-200 hover:shadow-md' }} transition-all reveal">
                     @if($plan[5])
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-pink-600 to-accent-600 rounded-full text-xs font-bold text-white">BEST VALUE</div>
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-pink-600 to-accent-600 rounded-full text-xs font-bold text-white">BEST VALUE</div>
                     @endif
                     <div class="mb-8">
-                        <h3 class="text-lg font-display font-bold text-white mb-2">{{ $plan[0] }}</h3>
-                        <p class="text-sm text-white/40 mb-6">{{ $plan[3] }}</p>
+                        <h3 class="text-lg font-display font-bold text-surface-900 mb-2">{{ $plan[0] }}</h3>
+                        <p class="text-sm text-surface-400 mb-6">{{ $plan[3] }}</p>
                         <div class="flex items-baseline gap-1">
-                            <span class="text-4xl font-display font-bold {{ $plan[5] ? 'gradient-text' : 'text-white' }}">{{ $plan[1] }}</span>
-                            <span class="text-white/40 text-sm">/ {{ $plan[2] }}</span>
+                            <span class="text-4xl font-display font-bold {{ $plan[5] ? 'text-pink-600' : 'text-surface-900' }}">{{ $plan[1] }}</span>
+                            <span class="text-surface-400 text-sm">/ {{ $plan[2] }}</span>
                         </div>
                     </div>
                     <ul class="space-y-3 mb-8">
                         @foreach($plan[4] as $feature)
-                        <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-white/60' : 'text-white/30' }}">
-                            <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-400' : 'ph-x-circle text-white/20' }}"></i>
+                        <li class="flex items-center gap-3 text-sm {{ $feature[0] ? 'text-surface-600' : 'text-surface-300' }}">
+                            <i class="ph {{ $feature[0] ? 'ph-check-circle text-green-500' : 'ph-x-circle text-surface-300' }}"></i>
                             {{ $feature[1] }}
                         </li>
                         @endforeach
                     </ul>
-                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-pink-600 to-accent-600 text-white font-bold hover:shadow-lg' : 'border border-white/15 text-white font-semibold hover:bg-white/5' }} rounded-full transition-all">
+                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-pink-600 to-accent-600 text-white font-bold hover:shadow-lg' : 'border border-surface-200 text-surface-700 font-semibold hover:bg-surface-50' }} rounded-lg transition-all">
                         Get Started
                     </a>
                 </div>
@@ -113,18 +113,18 @@
         </div>
 
         {{-- Prepaid Support Hours --}}
-        <div class="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-gradient-to-br from-surface-800/50 to-surface-900/50 border border-white/5 reveal">
-            <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-500/10 flex items-center justify-center mb-6">
-                <i class="ph ph-clock text-2xl text-orange-400"></i>
+        <div class="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-white border border-surface-200 shadow-sm reveal">
+            <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center mb-6">
+                <i class="ph ph-clock text-2xl text-orange-600"></i>
             </div>
-            <h2 class="text-3xl font-display font-bold text-white mb-4">Prepaid Support Hours</h2>
-            <p class="text-white/50 mb-6">Need regular website help without monthly contracts? Buy prepaid hours and use them whenever you need.</p>
+            <h2 class="text-3xl font-display font-bold text-surface-900 mb-4">Prepaid Support Hours</h2>
+            <p class="text-surface-500 mb-6">Need regular website help without monthly contracts? Buy prepaid hours and use them whenever you need.</p>
             <div class="flex flex-wrap justify-center gap-3 mb-6">
-                <span class="px-4 py-2 rounded-full bg-orange-500/10 text-orange-400 text-sm">No monthly contracts</span>
-                <span class="px-4 py-2 rounded-full bg-orange-500/10 text-orange-400 text-sm">No expiry</span>
-                <span class="px-4 py-2 rounded-full bg-orange-500/10 text-orange-400 text-sm">All platforms</span>
+                <span class="px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-sm">No monthly contracts</span>
+                <span class="px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-sm">No expiry</span>
+                <span class="px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-sm">All platforms</span>
             </div>
-            <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold rounded-full hover:shadow-lg transition-all">
+            <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 shadow-sm transition-all">
                 Learn More <i class="ph ph-arrow-right"></i>
             </a>
         </div>
