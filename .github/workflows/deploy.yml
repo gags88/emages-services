@@ -57,13 +57,14 @@ jobs:
             $PHP_BIN -v
 
             # Symlink document root to Laravel's public folder
-            # This makes only public/ web-accessible
-            if [ -d "$DOMAIN_PATH/new-web" ] && [ ! -L "$DOMAIN_PATH/new-web" ]; then
+            # Document root: public_html/new-web -> emages_soft/public
+            DOCROOT=$DOMAIN_PATH/public_html/new-web
+            if [ -d "$DOCROOT" ] && [ ! -L "$DOCROOT" ]; then
               echo "Backing up existing new-web directory..."
-              mv "$DOMAIN_PATH/new-web" "$DOMAIN_PATH/new-web.bak.$(date +%s)"
+              mv "$DOCROOT" "$DOMAIN_PATH/public_html/new-web.bak.$(date +%s)"
             fi
-            ln -sfn "$APP_PATH/public" "$DOMAIN_PATH/new-web"
-            echo "Symlink created: new-web -> emages_soft/public"
+            ln -sfn "$APP_PATH/public" "$DOCROOT"
+            echo "Symlink created: public_html/new-web -> emages_soft/public"
 
             # Create storage symlink inside public
             $PHP_BIN artisan storage:link 2>/dev/null || true
