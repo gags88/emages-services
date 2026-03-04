@@ -4,22 +4,31 @@
 
 @section('content')
 
-{{-- Hero --}}
-<section class="relative pt-32 pb-20 overflow-hidden bg-white">
-    <div class="absolute inset-0 hero-gradient"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 border border-green-100 text-green-600 text-sm font-medium mb-6 animate-fade-in">
-            <i class="ph ph-tag"></i> Pricing
-        </span>
-        <h1 class="text-5xl lg:text-6xl font-display font-bold text-surface-900 mb-6 animate-slide-up">
-            Transparent Pricing, <br><span class="gradient-text">Exceptional Value</span>
+{{-- Hero - Dark Cinematic --}}
+<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-br from-surface-950 via-primary-950 to-surface-900">
+    {{-- Gradient orbs --}}
+    <div class="absolute top-0 right-1/3 w-[400px] h-[400px] rounded-full bg-accent-500/15 blur-[120px] animate-orb-1"></div>
+    <div class="absolute bottom-0 left-1/4 w-[350px] h-[350px] rounded-full bg-primary-600/15 blur-[100px] animate-orb-2"></div>
+    {{-- Grid pattern --}}
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M0%200h1v1H0zM20%200h1v1h-1zM0%2020h1v1H0zM20%2020h1v1h-1z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-sm font-medium mb-6 animate-fade-in">
+            <i class="ph ph-tag text-green-400"></i>
+            <span class="text-white/70">Pricing</span>
+        </div>
+        <h1 class="text-5xl lg:text-6xl font-display font-bold mb-6 animate-slide-up leading-tight">
+            <span class="text-white">Transparent Pricing,</span><br>
+            <span class="hero-gradient-text">Exceptional Value</span>
         </h1>
-        <p class="text-xl text-surface-500 max-w-3xl mx-auto animate-slide-up delay-200">Simple, honest pricing for every stage of your business. No hidden fees, no surprises.</p>
+        <p class="text-xl text-white/40 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.15s;">
+            Simple, honest pricing for every stage of your business. No hidden fees, no surprises.
+        </p>
     </div>
 </section>
 
 {{-- Pricing --}}
-<section class="pb-24 bg-surface-50 pt-16">
+<section class="pb-24 bg-gradient-to-br from-surface-50 via-primary-50/20 to-accent-50/10 pt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Web Development Plans --}}
@@ -113,7 +122,7 @@
         </div>
 
         {{-- Prepaid Support Hours --}}
-        <div class="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-white border border-surface-200 shadow-sm reveal">
+        <div class="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-gradient-to-br from-orange-50/50 via-white to-accent-50/30 border border-orange-100/50 shadow-sm reveal">
             <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center mb-6">
                 <i class="ph ph-clock text-2xl text-orange-600"></i>
             </div>

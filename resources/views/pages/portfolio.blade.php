@@ -4,22 +4,30 @@
 
 @section('content')
 
-{{-- Hero --}}
-<section class="relative pt-32 pb-20 overflow-hidden bg-white">
-    <div class="absolute inset-0 hero-gradient"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 border border-primary-100 text-primary-600 text-sm font-medium mb-6 animate-fade-in">
-            <i class="ph ph-briefcase"></i> Our Work
-        </span>
-        <h1 class="text-5xl lg:text-6xl font-display font-bold text-surface-900 mb-6 animate-slide-up">
-            Projects That <span class="gradient-text">Speak Results</span>
+{{-- Hero - Dark Cinematic --}}
+<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-br from-surface-950 via-primary-950 to-surface-900">
+    {{-- Gradient orbs --}}
+    <div class="absolute top-0 left-1/3 w-[400px] h-[400px] rounded-full bg-primary-600/15 blur-[120px] animate-orb-1"></div>
+    <div class="absolute bottom-0 right-1/3 w-[350px] h-[350px] rounded-full bg-accent-500/15 blur-[100px] animate-orb-2"></div>
+    {{-- Grid pattern --}}
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M0%200h1v1H0zM20%200h1v1h-1zM0%2020h1v1H0zM20%2020h1v1h-1z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-sm font-medium mb-6 animate-fade-in">
+            <i class="ph ph-briefcase text-primary-400"></i>
+            <span class="text-white/70">Our Work</span>
+        </div>
+        <h1 class="text-5xl lg:text-6xl font-display font-bold mb-6 animate-slide-up leading-tight">
+            <span class="text-white">Projects That</span> <span class="hero-gradient-text">Speak Results</span>
         </h1>
-        <p class="text-xl text-surface-500 max-w-3xl mx-auto animate-slide-up delay-200">Real projects. Real impact. See how we've helped businesses across the globe transform digitally.</p>
+        <p class="text-xl text-white/40 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.15s;">
+            Real projects. Real impact. See how we've helped businesses across the globe transform digitally.
+        </p>
     </div>
 </section>
 
 {{-- Filter Tabs --}}
-<section class="pb-24 bg-surface-50">
+<section class="pb-24 bg-gradient-to-br from-surface-50 via-primary-50/20 to-accent-50/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16" x-data="{ filter: 'all' }">
         <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
             @foreach(['all' => 'All Projects', 'web' => 'Web Development', 'ecommerce' => 'E-Commerce', 'design' => 'Design', 'marketing' => 'Marketing'] as $key => $label)

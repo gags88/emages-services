@@ -28,6 +28,9 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- Devicon - Technology Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('styles')
 </head>

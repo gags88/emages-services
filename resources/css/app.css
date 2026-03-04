@@ -143,6 +143,90 @@
 .animate-scale-in {
     animation: scale-in 0.5s ease-out forwards;
 }
+
+/* Hero animated gradient text */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.hero-gradient-text {
+    background: linear-gradient(
+        135deg,
+        #818cf8,
+        #5a6ff0,
+        #08b99b,
+        #34d399,
+        #5a6ff0,
+        #818cf8
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease-in-out infinite;
+}
+
+/* Floating orb animations */
+@keyframes orb-drift-1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(60px, -40px) scale(1.1);
+    }
+    66% {
+        transform: translate(-30px, 30px) scale(0.95);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+@keyframes orb-drift-2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-50px, 30px) scale(1.05);
+    }
+    66% {
+        transform: translate(40px, -20px) scale(0.9);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+.animate-orb-1 {
+    animation: orb-drift-1 15s ease-in-out infinite;
+}
+.animate-orb-2 {
+    animation: orb-drift-2 18s ease-in-out infinite;
+}
+
+/* Hero progress bar animation */
+@keyframes progress-fill {
+    0% {
+        width: 0;
+    }
+    60% {
+        width: 85%;
+    }
+    80% {
+        width: 92%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+.animate-progress-bar {
+    animation: progress-fill 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
 .animate-marquee {
     animation: marquee 30s linear infinite;
 }
@@ -205,9 +289,16 @@
     transform: scale(1);
 }
 
-/* Subtle accent text */
+/* Gradient accent text */
 .gradient-text {
-    color: var(--color-primary-600);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary-600),
+        var(--color-accent-500)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Subtle accent underline decoration */
@@ -243,17 +334,17 @@ html {
     background:
         radial-gradient(
             ellipse at 20% 50%,
-            rgba(90, 111, 240, 0.06) 0px,
+            rgba(90, 111, 240, 0.1) 0px,
             transparent 60%
         ),
         radial-gradient(
             ellipse at 80% 20%,
-            rgba(8, 185, 155, 0.05) 0px,
+            rgba(8, 185, 155, 0.08) 0px,
             transparent 60%
         ),
         radial-gradient(
             ellipse at 60% 80%,
-            rgba(90, 111, 240, 0.04) 0px,
+            rgba(90, 111, 240, 0.06) 0px,
             transparent 50%
         );
 }

@@ -19,7 +19,7 @@
 </section>
 
 {{-- Blog Grid --}}
-<section class="pb-24 bg-surface-50 pt-16">
+<section class="pb-24 bg-gradient-to-br from-surface-50 via-accent-50/20 to-primary-50/20 pt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Featured Post --}}

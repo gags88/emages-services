@@ -13,19 +13,19 @@
                     E
                 </div>
                 <div>
-                    <span class="text-lg font-display font-bold text-surface-900 tracking-tight">Emages</span>
-                    <span class="text-lg font-display font-medium text-primary-600 tracking-tight">Soft</span>
+                    <span class="text-lg font-display font-bold tracking-tight transition-colors duration-300" :class="scrolled ? 'text-surface-900' : 'text-white'">Emages Soft</span>
+                    <span class="text-lg font-display font-medium text-primary-600 tracking-tight" :class="scrolled ? 'text-primary-600' : 'text-primary-400'">Services</span>
                 </div>
             </a>
 
             {{-- Desktop Nav --}}
             <div class="hidden lg:flex items-center gap-1">
-                <a href="{{ route('home') }}" class="px-4 py-2 text-sm font-medium text-surface-600 hover:text-surface-900 rounded-lg hover:bg-surface-100 transition-all duration-200 {{ request()->routeIs('home') ? 'text-primary-600 bg-primary-50' : '' }}">Home</a>
-                <a href="{{ route('about') }}" class="px-4 py-2 text-sm font-medium text-surface-600 hover:text-surface-900 rounded-lg hover:bg-surface-100 transition-all duration-200 {{ request()->routeIs('about') ? 'text-primary-600 bg-primary-50' : '' }}">About</a>
+                <a href="{{ route('home') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200" :class="scrolled ? '{{ request()->routeIs('home') ? 'text-primary-600 bg-primary-50 font-semibold' : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100' }}' : '{{ request()->routeIs('home') ? 'text-primary-400 bg-white/15 font-semibold' : 'text-white/80 hover:text-white hover:bg-white/10' }}'">Home</a>
+                <a href="{{ route('about') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200" :class="scrolled ? '{{ request()->routeIs('about') ? 'text-primary-600 bg-primary-50 font-semibold' : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100' }}' : '{{ request()->routeIs('about') ? 'text-primary-400 bg-white/15 font-semibold' : 'text-white/80 hover:text-white hover:bg-white/10' }}'">About</a>
 
                 {{-- Services Dropdown --}}
                 <div class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('services') }}" class="px-4 py-2 text-sm font-medium text-surface-600 hover:text-surface-900 rounded-lg hover:bg-surface-100 transition-all duration-200 flex items-center gap-1 {{ request()->routeIs('services*') ? 'text-primary-600 bg-primary-50' : '' }}">
+                    <a href="{{ route('services') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1" :class="scrolled ? '{{ request()->routeIs('services*') ? 'text-primary-600 bg-primary-50 font-semibold' : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100' }}' : '{{ request()->routeIs('services*') ? 'text-primary-400 bg-white/15 font-semibold' : 'text-white/80 hover:text-white hover:bg-white/10' }}'">
                         Services
                         <i class="ph ph-caret-down text-xs transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
                     </a>
@@ -69,10 +69,10 @@
                     </div>
                 </div>
 
-                <a href="{{ route('portfolio') }}" class="px-4 py-2 text-sm font-medium text-surface-600 hover:text-surface-900 rounded-lg hover:bg-surface-100 transition-all duration-200 {{ request()->routeIs('portfolio') ? 'text-primary-600 bg-primary-50' : '' }}">Portfolio</a>
-                <a href="{{ route('pricing') }}" class="px-4 py-2 text-sm font-medium text-surface-600 hover:text-surface-900 rounded-lg hover:bg-surface-100 transition-all duration-200 {{ request()->routeIs('pricing') ? 'text-primary-600 bg-primary-50' : '' }}">Pricing</a>
-                <a href="{{ route('blog') }}" class="px-4 py-2 text-sm font-medium text-surface-600 hover:text-surface-900 rounded-lg hover:bg-surface-100 transition-all duration-200 {{ request()->routeIs('blog') ? 'text-primary-600 bg-primary-50' : '' }}">Blog</a>
-                <a href="{{ route('contact') }}" class="px-4 py-2 text-sm font-medium text-surface-600 hover:text-surface-900 rounded-lg hover:bg-surface-100 transition-all duration-200 {{ request()->routeIs('contact') ? 'text-primary-600 bg-primary-50' : '' }}">Contact</a>
+                <a href="{{ route('portfolio') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200" :class="scrolled ? '{{ request()->routeIs('portfolio') ? 'text-primary-600 bg-primary-50 font-semibold' : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100' }}' : '{{ request()->routeIs('portfolio') ? 'text-primary-400 bg-white/15 font-semibold' : 'text-white/80 hover:text-white hover:bg-white/10' }}'">Portfolio</a>
+                <a href="{{ route('pricing') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200" :class="scrolled ? '{{ request()->routeIs('pricing') ? 'text-primary-600 bg-primary-50 font-semibold' : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100' }}' : '{{ request()->routeIs('pricing') ? 'text-primary-400 bg-white/15 font-semibold' : 'text-white/80 hover:text-white hover:bg-white/10' }}'">Pricing</a>
+                {{-- Blog link hidden --}}
+                <a href="{{ route('contact') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200" :class="scrolled ? '{{ request()->routeIs('contact') ? 'text-primary-600 bg-primary-50 font-semibold' : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100' }}' : '{{ request()->routeIs('contact') ? 'text-primary-400 bg-white/15 font-semibold' : 'text-white/80 hover:text-white hover:bg-white/10' }}'">Contact</a>
             </div>
 
             {{-- CTA + Mobile Toggle --}}
@@ -83,11 +83,11 @@
                 </a>
 
                 {{-- Mobile Menu Button --}}
-                <button @click="mobileOpen = !mobileOpen" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-surface-100 hover:bg-surface-200 transition-colors">
+                <button @click="mobileOpen = !mobileOpen" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg transition-colors" :class="scrolled ? 'bg-surface-100 hover:bg-surface-200' : 'bg-white/10 hover:bg-white/20'">
                     <div class="w-5 h-4 flex flex-col justify-between">
-                        <span class="w-full h-0.5 bg-surface-700 rounded-full transition-all duration-300" :class="mobileOpen ? 'rotate-45 translate-y-[7px]' : ''"></span>
-                        <span class="w-full h-0.5 bg-surface-700 rounded-full transition-all duration-300" :class="mobileOpen ? 'opacity-0' : ''"></span>
-                        <span class="w-full h-0.5 bg-surface-700 rounded-full transition-all duration-300" :class="mobileOpen ? '-rotate-45 -translate-y-[7px]' : ''"></span>
+                        <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? 'rotate-45 translate-y-[7px]' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
+                        <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? 'opacity-0' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
+                        <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? '-rotate-45 -translate-y-[7px]' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
                     </div>
                 </button>
             </div>
@@ -103,7 +103,7 @@
             <a href="{{ route('services') }}" class="block px-4 py-3 text-surface-700 hover:text-primary-600 hover:bg-surface-50 rounded-lg transition-all">Services</a>
             <a href="{{ route('portfolio') }}" class="block px-4 py-3 text-surface-700 hover:text-primary-600 hover:bg-surface-50 rounded-lg transition-all">Portfolio</a>
             <a href="{{ route('pricing') }}" class="block px-4 py-3 text-surface-700 hover:text-primary-600 hover:bg-surface-50 rounded-lg transition-all">Pricing</a>
-            <a href="{{ route('blog') }}" class="block px-4 py-3 text-surface-700 hover:text-primary-600 hover:bg-surface-50 rounded-lg transition-all">Blog</a>
+            {{-- Blog link hidden --}}
             <a href="{{ route('contact') }}" class="block px-4 py-3 text-surface-700 hover:text-primary-600 hover:bg-surface-50 rounded-lg transition-all">Contact</a>
             <div class="pt-3">
                 <a href="{{ route('contact') }}" class="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors">
