@@ -48,10 +48,25 @@ jobs:
           port: 65002
           script: |
             PHP_BIN=/opt/alt/php83/usr/bin/php
-            cd /home/u464987102/domains/emagessoft.com/emages_soft
+            DOMAIN_PATH=/home/u464987102/domains/emagessoft.com
+            APP_PATH=$DOMAIN_PATH/emages_soft
+
+            cd $APP_PATH
 
             # Debug: confirm PHP version
             $PHP_BIN -v
+
+            # Symlink document root to Laravel's public folder
+            # This makes only public/ web-accessible
+            if [ -d "$DOMAIN_PATH/new-web" ] && [ ! -L "$DOMAIN_PATH/new-web" ]; then
+              echo "Backing up existing new-web directory..."
+              mv "$DOMAIN_PATH/new-web" "$DOMAIN_PATH/new-web.bak.$(date +%s)"
+            fi
+            ln -sfn "$APP_PATH/public" "$DOMAIN_PATH/new-web"
+            echo "Symlink created: new-web -> emages_soft/public"
+
+            # Create storage symlink inside public
+            $PHP_BIN artisan storage:link 2>/dev/null || true
 
             # Find composer phar location
             COMPOSER_PATH=$(which composer 2>/dev/null || echo "/usr/local/bin/composer")
