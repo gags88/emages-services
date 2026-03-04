@@ -5,10 +5,10 @@
 @section('content')
 
 {{-- Page Hero - Dark Cinematic --}}
-<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-br from-surface-950 via-primary-950 to-surface-900">
+<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-linear-to-br from-surface-950 via-primary-950 to-surface-900">
     {{-- Gradient orbs --}}
-    <div class="absolute top-0 right-1/4 w-[400px] h-[400px] rounded-full bg-accent-500/15 blur-[120px] animate-orb-1"></div>
-    <div class="absolute bottom-0 left-1/3 w-[350px] h-[350px] rounded-full bg-primary-600/15 blur-[100px] animate-orb-2"></div>
+    <div class="absolute top-0 right-1/4 w-100 h-100 rounded-full bg-accent-500/15 blur-[120px] animate-orb-1"></div>
+    <div class="absolute bottom-0 left-1/3 w-87.5 h-87.5 rounded-full bg-primary-600/15 blur-[100px] animate-orb-2"></div>
     {{-- Grid pattern --}}
     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M0%200h1v1H0zM20%200h1v1h-1zM0%2020h1v1H0zM20%2020h1v1h-1z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
 
@@ -66,7 +66,7 @@
 ['Social Media Creatives', 'Engaging social media graphics that drive engagement and shares.'],
 ]],
 ] as $index => $service)
-<section id="{{ $service[0] }}" class="py-24 {{ $index % 2 === 0 ? 'bg-gradient-to-br from-white via-primary-50/20 to-accent-50/10' : 'bg-gradient-to-br from-surface-50 via-accent-50/20 to-primary-50/10' }} overflow-hidden">
+<section id="{{ $service[0] }}" class="py-24 {{ $index % 2 === 0 ? 'bg-linear-to-br from-white via-primary-50/20 to-accent-50/10' : 'bg-linear-to-br from-surface-50 via-accent-50/20 to-primary-50/10' }} overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="{{ $index % 2 !== 0 ? 'lg:order-2' : '' }} reveal-left">
@@ -91,7 +91,7 @@
                 </a>
             </div>
             <div class="{{ $index % 2 !== 0 ? 'lg:order-1' : '' }} reveal-right">
-                <div class="aspect-square rounded-3xl bg-gradient-to-br from-{{ $service[3] }}-50 to-{{ $service[3] }}-100/50 border border-surface-100 flex items-center justify-center">
+                <div class="aspect-square rounded-3xl bg-linear-to-br from-{{ $service[3] }}-50 to-{{ $service[3] }}-100/50 border border-surface-100 flex items-center justify-center">
                     <i class="ph {{ $service[1] }} text-[120px] text-{{ $service[3] }}-200"></i>
                 </div>
             </div>
@@ -101,7 +101,7 @@
 @endforeach
 
 {{-- Zoho Partner Section --}}
-<section class="py-24 bg-gradient-to-r from-primary-700 via-primary-600 to-accent-600 overflow-hidden">
+<section class="py-24 bg-linear-to-r from-primary-700 via-primary-600 to-accent-600 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto reveal">
             <div class="w-14 h-14 mx-auto rounded-2xl bg-white/10 flex items-center justify-center mb-6">

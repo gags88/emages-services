@@ -3,7 +3,7 @@
 
     {{-- CTA Banner --}}
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-        <div class="relative rounded-3xl bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600 p-10 lg:p-14 overflow-hidden" id="cta-banner">
+        <div class="relative rounded-3xl bg-linear-to-br from-primary-600 via-primary-700 to-accent-600 p-10 lg:p-14 overflow-hidden" id="cta-banner">
             {{-- Animated particles canvas --}}
             <canvas id="cta-particles" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
             {{-- Decorative gradient orbs --}}

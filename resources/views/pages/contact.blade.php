@@ -5,10 +5,10 @@
 @section('content')
 
 {{-- Hero - Dark Cinematic --}}
-<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-br from-surface-950 via-primary-950 to-surface-900">
+<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-linear-to-br from-surface-950 via-primary-950 to-surface-900">
     {{-- Gradient orbs --}}
-    <div class="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-primary-600/15 blur-[120px] animate-orb-1"></div>
-    <div class="absolute bottom-0 right-1/4 w-[350px] h-[350px] rounded-full bg-accent-500/10 blur-[100px] animate-orb-2"></div>
+    <div class="absolute top-0 left-1/4 w-100 h-100 rounded-full bg-primary-600/15 blur-[120px] animate-orb-1"></div>
+    <div class="absolute bottom-0 right-1/4 w-87.5 h-87.5 rounded-full bg-accent-500/10 blur-[100px] animate-orb-2"></div>
     {{-- Grid pattern --}}
     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M0%200h1v1H0zM20%200h1v1h-1zM0%2020h1v1H0zM20%2020h1v1h-1z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
 
@@ -28,7 +28,7 @@
 </section>
 
 {{-- Contact Section --}}
-<section class="pb-24 bg-gradient-to-br from-surface-50 via-primary-50/20 to-accent-50/20 pt-16">
+<section class="pb-24 bg-linear-to-br from-surface-50 via-primary-50/20 to-accent-50/20 pt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-5 gap-12">
             {{-- Contact Info --}}

@@ -85,9 +85,9 @@
                 {{-- Mobile Menu Button --}}
                 <button @click="mobileOpen = !mobileOpen" class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg transition-colors" :class="scrolled ? 'bg-surface-100 hover:bg-surface-200' : 'bg-white/10 hover:bg-white/20'">
                     <div class="w-5 h-4 flex flex-col justify-between">
-                        <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? 'rotate-45 translate-y-[7px]' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
+                        <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? 'rotate-45 translate-y-1.75' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
                         <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? 'opacity-0' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
-                        <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? '-rotate-45 -translate-y-[7px]' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
+                        <span class="w-full h-0.5 rounded-full transition-all duration-300" :class="[mobileOpen ? '-rotate-45 -translate-y-1.75' : '', scrolled ? 'bg-surface-700' : 'bg-white']"></span>
                     </div>
                 </button>
             </div>

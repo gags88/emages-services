@@ -5,10 +5,10 @@
 @section('content')
 
 {{-- Hero - Dark Cinematic --}}
-<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-br from-surface-950 via-primary-950 to-surface-900">
+<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-linear-to-br from-surface-950 via-primary-950 to-surface-900">
     {{-- Gradient orbs --}}
-    <div class="absolute top-0 right-1/3 w-[400px] h-[400px] rounded-full bg-accent-500/15 blur-[120px] animate-orb-1"></div>
-    <div class="absolute bottom-0 left-1/4 w-[350px] h-[350px] rounded-full bg-primary-600/15 blur-[100px] animate-orb-2"></div>
+    <div class="absolute top-0 right-1/3 w-100 h-100 rounded-full bg-accent-500/15 blur-[120px] animate-orb-1"></div>
+    <div class="absolute bottom-0 left-1/4 w-87.5 h-87.5 rounded-full bg-primary-600/15 blur-[100px] animate-orb-2"></div>
     {{-- Grid pattern --}}
     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M0%200h1v1H0zM20%200h1v1h-1zM0%2020h1v1H0zM20%2020h1v1h-1z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
 
@@ -28,7 +28,7 @@
 </section>
 
 {{-- Pricing --}}
-<section class="pb-24 bg-gradient-to-br from-surface-50 via-primary-50/20 to-accent-50/10 pt-16">
+<section class="pb-24 bg-linear-to-br from-surface-50 via-primary-50/20 to-accent-50/10 pt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Web Development Plans --}}
@@ -95,7 +95,7 @@
                 ] as $plan)
                 <div class="relative p-8 rounded-2xl bg-white border {{ $plan[5] ? 'border-2 border-pink-500 shadow-lg' : 'border-surface-200 hover:shadow-md' }} transition-all reveal">
                     @if($plan[5])
-                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-pink-600 to-accent-600 rounded-full text-xs font-bold text-white">BEST VALUE</div>
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-linear-to-r from-pink-600 to-accent-600 rounded-full text-xs font-bold text-white">BEST VALUE</div>
                     @endif
                     <div class="mb-8">
                         <h3 class="text-lg font-display font-bold text-surface-900 mb-2">{{ $plan[0] }}</h3>
@@ -113,7 +113,7 @@
                         </li>
                         @endforeach
                     </ul>
-                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-gradient-to-r from-pink-600 to-accent-600 text-white font-bold hover:shadow-lg' : 'border border-surface-200 text-surface-700 font-semibold hover:bg-surface-50' }} rounded-lg transition-all">
+                    <a href="{{ route('contact') }}" class="block text-center px-6 py-3 {{ $plan[5] ? 'bg-linear-to-r from-pink-600 to-accent-600 text-white font-bold hover:shadow-lg' : 'border border-surface-200 text-surface-700 font-semibold hover:bg-surface-50' }} rounded-lg transition-all">
                         Get Started
                     </a>
                 </div>
@@ -122,7 +122,7 @@
         </div>
 
         {{-- Prepaid Support Hours --}}
-        <div class="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-gradient-to-br from-orange-50/50 via-white to-accent-50/30 border border-orange-100/50 shadow-sm reveal">
+        <div class="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-linear-to-br from-orange-50/50 via-white to-accent-50/30 border border-orange-100/50 shadow-sm reveal">
             <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center mb-6">
                 <i class="ph ph-clock text-2xl text-orange-600"></i>
             </div>

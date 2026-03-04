@@ -6,10 +6,10 @@
 @section('content')
 
 {{-- Page Hero - Dark Cinematic --}}
-<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-br from-surface-950 via-primary-950 to-surface-900">
+<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-linear-to-br from-surface-950 via-primary-950 to-surface-900">
     {{-- Gradient orbs --}}
-    <div class="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-primary-600/15 blur-[120px] animate-orb-1"></div>
-    <div class="absolute bottom-0 right-1/4 w-[350px] h-[350px] rounded-full bg-accent-500/15 blur-[100px] animate-orb-2"></div>
+    <div class="absolute top-0 left-1/4 w-100 h-100 rounded-full bg-primary-600/15 blur-[120px] animate-orb-1"></div>
+    <div class="absolute bottom-0 right-1/4 w-87.5 h-87.5 rounded-full bg-accent-500/15 blur-[100px] animate-orb-2"></div>
     {{-- Grid pattern --}}
     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M0%200h1v1H0zM20%200h1v1h-1zM0%2020h1v1H0zM20%2020h1v1h-1z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
 
@@ -29,7 +29,7 @@
 </section>
 
 {{-- Stats --}}
-<section class="bg-gradient-to-r from-primary-700 via-primary-600 to-accent-600 py-16">
+<section class="bg-linear-to-r from-primary-700 via-primary-600 to-accent-600 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16">
             @foreach([['20+', 'Years Experience'], ['150+', 'Happy Clients'], ['300+', 'Projects Done'], ['15+', 'Countries Served']] as $stat)
@@ -43,7 +43,7 @@
 </section>
 
 {{-- Who We Are --}}
-<section class="py-24 bg-gradient-to-br from-white via-primary-50/20 to-accent-50/20 overflow-hidden">
+<section class="py-24 bg-linear-to-br from-white via-primary-50/20 to-accent-50/20 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="reveal-left">
@@ -65,9 +65,9 @@
             </div>
             <div class="reveal-right">
                 <div class="relative">
-                    <div class="aspect-square rounded-3xl bg-gradient-to-br from-primary-50 to-accent-50 border border-surface-100 flex items-center justify-center">
+                    <div class="aspect-square rounded-3xl bg-linear-to-br from-primary-50 to-accent-50 border border-surface-100 flex items-center justify-center">
                         <div class="text-center space-y-6 p-12">
-                            <div class="w-24 h-24 mx-auto rounded-3xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                            <div class="w-24 h-24 mx-auto rounded-3xl bg-linear-to-br from-primary-500 to-accent-500 flex items-center justify-center">
                                 <i class="ph ph-rocket-launch text-4xl text-white"></i>
                             </div>
                             <h3 class="text-3xl font-display font-bold text-surface-900">Innovating Since 2014</h3>
@@ -92,7 +92,7 @@
 </section>
 
 {{-- Mission & Vision --}}
-<section class="py-24 bg-gradient-to-br from-primary-50/30 via-surface-50 to-accent-50/30">
+<section class="py-24 bg-linear-to-br from-primary-50/30 via-surface-50 to-accent-50/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-8">
             <div class="p-10 rounded-3xl bg-white border border-surface-200 hover:shadow-md transition-all reveal">
@@ -118,7 +118,7 @@
 </section>
 
 {{-- Why Choose Us --}}
-<section class="py-24 bg-gradient-to-br from-accent-50/20 via-white to-primary-50/20 overflow-hidden">
+<section class="py-24 bg-linear-to-br from-accent-50/20 via-white to-primary-50/20 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
             <h2 class="text-4xl font-display font-bold text-surface-900 mb-6">Why Select <span class="gradient-text">Emages Soft?</span></h2>

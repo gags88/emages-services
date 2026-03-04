@@ -25,7 +25,7 @@
         {{-- Featured Post --}}
         <div class="mb-16 reveal">
             <div class="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden bg-white border border-surface-200 hover:shadow-lg transition-all">
-                <div class="aspect-[16/10] lg:aspect-auto bg-gradient-to-br from-primary-50 to-accent-50 flex items-center justify-center p-12">
+                <div class="aspect-16/10 lg:aspect-auto bg-linear-to-br from-primary-50 to-accent-50 flex items-center justify-center p-12">
                     <div class="text-center">
                         <span class="px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-medium">Featured</span>
                         <h2 class="text-3xl font-display font-bold text-surface-900 mt-6 leading-snug">The Future of Web Development: Trends Shaping 2026 and Beyond</h2>
@@ -54,7 +54,7 @@
             ['Graphic Design Trends That Will Dominate 2026', 'From AI-generated visuals to immersive 3D graphics, discover the design trends that will shape brand identities and digital experiences throughout 2026 and beyond.', 'Jan 20, 2026', '5 min read', 'Design', 'from-pink-50 to-rose-50'],
             ] as $post)
             <article class="group rounded-2xl overflow-hidden bg-white border border-surface-200 hover:shadow-lg transition-all reveal" data-delay="{{ $loop->index * 100 }}">
-                <div class="aspect-[16/10] bg-gradient-to-br {{ $post[5] }} flex items-center justify-center p-6">
+                <div class="aspect-16/10 bg-linear-to-br {{ $post[5] }} flex items-center justify-center p-6">
                     <h3 class="text-lg font-display font-bold text-surface-800 text-center leading-snug group-hover:text-primary-700 transition-colors">{{ $post[0] }}</h3>
                 </div>
                 <div class="p-6">
