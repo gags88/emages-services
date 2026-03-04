@@ -126,7 +126,7 @@
 
 /* Utility classes */
 .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: none;
 }
 .animate-slide-up {
     animation: slide-up 0.7s ease-out forwards;
@@ -170,7 +170,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradient-shift 6s ease-in-out infinite;
+    animation: none;
 }
 
 /* Floating orb animations */
@@ -228,7 +228,7 @@
     animation: progress-fill 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: none;
 }
 
 /* Stagger delays */
@@ -251,40 +251,40 @@
     animation-delay: 0.6s;
 }
 
-/* Intersection Observer hidden state */
-.reveal {
+/* Intersection Observer hidden state — only hidden when JS is ready */
+.js-ready .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.active {
+.js-ready .reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
-.reveal-left {
+.js-ready .reveal-left {
     opacity: 0;
     transform: translateX(-40px);
     transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal-left.active {
+.js-ready .reveal-left.active {
     opacity: 1;
     transform: translateX(0);
 }
-.reveal-right {
+.js-ready .reveal-right {
     opacity: 0;
     transform: translateX(40px);
     transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal-right.active {
+.js-ready .reveal-right.active {
     opacity: 1;
     transform: translateX(0);
 }
-.reveal-scale {
+.js-ready .reveal-scale {
     opacity: 0;
     transform: scale(0.95);
     transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal-scale.active {
+.js-ready .reveal-scale.active {
     opacity: 1;
     transform: scale(1);
 }
@@ -327,6 +327,92 @@
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Lite mode for mobile/low-power devices */
+.lite-mode .animate-orb-1,
+.lite-mode .animate-orb-2,
+.lite-mode .animate-float,
+.lite-mode .animate-slide-up,
+.lite-mode .animate-slide-in-left,
+.lite-mode .animate-slide-in-right,
+.lite-mode .animate-fade-in,
+.lite-mode .animate-scale-in,
+.lite-mode .animate-progress-bar,
+.lite-mode .animate-marquee,
+.lite-mode .page-transition {
+    animation: none !important;
+}
+.lite-mode .backdrop-blur-xl,
+.lite-mode .backdrop-blur-md,
+.lite-mode .backdrop-blur-sm {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+.lite-mode .reveal,
+.lite-mode .reveal-left,
+.lite-mode .reveal-right,
+.lite-mode .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.lite-mode #hero-particles,
+.lite-mode #cta-particles {
+    display: none !important;
+}
+.lite-mode [class*="blur-"] {
+    filter: none !important;
+}
+.lite-mode .transition-all,
+.lite-mode .transition-colors,
+.lite-mode .transition-transform,
+.lite-mode .transition-opacity {
+    transition: none !important;
+}
+
+/* Reduce heavy animations/effects on mobile for performance */
+@media (max-width: 1023px) {
+    .animate-orb-1,
+    .animate-orb-2 {
+        animation: none !important;
+    }
+    .animate-float {
+        animation: none !important;
+    }
+    .hero-gradient-text {
+        animation: none !important;
+        background-size: 100% 100% !important;
+    }
+    .animate-marquee,
+    .animate-progress-bar,
+    .animate-slide-up,
+    .animate-fade-in {
+        animation: none !important;
+    }
+    .backdrop-blur-xl,
+    .backdrop-blur-md,
+    .backdrop-blur-sm {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .js-ready .reveal,
+    .js-ready .reveal-left,
+    .js-ready .reveal-right,
+    .js-ready .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
 
 /* Soft hero background */
@@ -380,5 +466,13 @@ html {
     #clients-section > div:nth-child(2),
     #clients-section > div:nth-child(3) {
         will-change: transform;
+    }
+}
+
+/* Render large below-the-fold sections lazily for faster first paint */
+@supports (content-visibility: auto) {
+    .defer-section {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 1000px;
     }
 }

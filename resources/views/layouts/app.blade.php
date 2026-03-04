@@ -23,13 +23,26 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    </noscript>
 
     <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+    <!-- Prevent Alpine.js flash of unstyled content -->
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
 
     <!-- Devicon - Technology Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('styles')
@@ -70,7 +83,11 @@
     <script>
         // Back to top button
         const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
+        let backToTopTicking = false;
+
+        function updateBackToTop() {
+            if (!backToTop) return;
+
             if (window.scrollY > 500) {
                 backToTop.style.opacity = '1';
                 backToTop.style.transform = 'translateY(0)';
@@ -80,7 +97,19 @@
                 backToTop.style.transform = 'translateY(1rem)';
                 backToTop.style.pointerEvents = 'none';
             }
+
+            backToTopTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (backToTopTicking) return;
+            requestAnimationFrame(updateBackToTop);
+            backToTopTicking = true;
+        }, {
+            passive: true
         });
+
+        updateBackToTop();
     </script>
 </body>
 

@@ -7,8 +7,6 @@
 
 {{-- Hero Section --}}
 <section class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-linear-to-br from-surface-950 via-primary-950 to-surface-900" id="hero">
-    {{-- Animated particle canvas --}}
-    <canvas id="hero-particles" class="absolute inset-0 w-full h-full"></canvas>
     {{-- Animated gradient orbs --}}
     <div class="absolute top-0 left-1/4 w-125 h-125 rounded-full bg-primary-600/15 blur-[120px] animate-orb-1"></div>
     <div class="absolute bottom-0 right-1/4 w-100 h-100 rounded-full bg-accent-500/15 blur-[100px] animate-orb-2"></div>
@@ -19,20 +17,20 @@
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div class="text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-sm font-medium mb-8 animate-fade-in">
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-sm font-medium mb-8">
+                    <span class="w-2 h-2 rounded-full bg-green-400"></span>
                     <span class="text-white/80">Premium Digital Solutions</span>
                     <span class="px-2 py-0.5 rounded-full bg-primary-500/20 text-primary-300 text-xs font-bold">NEW</span>
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-display font-bold mb-6 animate-slide-up leading-[1.1]">
+                <h1 class="text-5xl lg:text-7xl font-display font-bold mb-6 leading-[1.1]">
                     <span class="text-white">We Build Digital</span><br>
                     <span class="text-white">Products That</span><br>
                     <span class="hero-gradient-text">Drive Growth</span>
                 </h1>
-                <p class="text-lg lg:text-xl text-white/50 mb-10 max-w-xl animate-slide-up leading-relaxed" style="animation-delay: 0.15s;">
+                <p class="text-lg lg:text-xl text-white/50 mb-10 max-w-xl leading-relaxed">
                     From custom software to digital marketing, we help businesses transform their digital presence with solutions that deliver measurable results.
                 </p>
-                <div class="flex flex-wrap gap-4 justify-center lg:justify-start animate-slide-up" style="animation-delay: 0.3s;">
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
                     <a href="{{ route('contact') }}" class="group inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-primary-500 to-primary-600 text-white font-bold rounded-xl hover:from-primary-400 hover:to-primary-500 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 hover:-translate-y-0.5 transition-all duration-300">
                         Start Your Project <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -41,7 +39,7 @@
                     </a>
                 </div>
                 {{-- Trust badges --}}
-                <div class="mt-12 flex flex-wrap items-center gap-6 justify-center lg:justify-start animate-fade-in" style="animation-delay: 0.5s;">
+                <div class="mt-12 flex flex-wrap items-center gap-6 justify-center lg:justify-start">
                     <div class="flex items-center gap-2">
                         <div class="flex -space-x-2">
                             <div class="w-8 h-8 rounded-full bg-linear-to-br from-blue-400 to-blue-600 border-2 border-surface-900 flex items-center justify-center text-white text-[10px] font-bold">G</div>
@@ -61,7 +59,7 @@
             </div>
 
             {{-- Right side: Interactive visual --}}
-            <div class="hidden lg:block relative animate-fade-in" style="animation-delay: 0.3s;">
+            <div class="hidden lg:block relative">
                 <div class="relative">
                     {{-- Main visual card --}}
                     <div class="relative rounded-3xl bg-linear-to-br from-white/8 to-white/2 backdrop-blur-xl border border-white/10 p-8 overflow-hidden">
@@ -108,7 +106,7 @@
                                     <span class="text-primary-400 font-semibold">100%</span>
                                 </div>
                                 <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                                    <div class="h-full rounded-full bg-linear-to-r from-primary-500 to-accent-500 animate-progress-bar"></div>
+                                    <div class="h-full rounded-full bg-linear-to-r from-primary-500 to-accent-500"></div>
                                 </div>
                             </div>
                         </div>
@@ -153,109 +151,10 @@
         </div>
     </div>
 
-    {{-- Hero particles script --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('hero-particles');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let mouse = {
-                x: null,
-                y: null
-            };
-
-            function resize() {
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-            }
-
-            canvas.addEventListener('mousemove', e => {
-                const rect = canvas.getBoundingClientRect();
-                mouse.x = e.clientX - rect.left;
-                mouse.y = e.clientY - rect.top;
-            });
-            canvas.addEventListener('mouseleave', () => {
-                mouse.x = null;
-                mouse.y = null;
-            });
-
-            function createParticle() {
-                return {
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 2 + 0.3,
-                    speedX: (Math.random() - 0.5) * 0.4,
-                    speedY: (Math.random() - 0.5) * 0.4,
-                    opacity: Math.random() * 0.4 + 0.05,
-                    pulse: Math.random() * Math.PI * 2,
-                    pulseSpeed: Math.random() * 0.015 + 0.005,
-                    hue: Math.random() > 0.5 ? 230 : 165
-                };
-            }
-
-            function init() {
-                resize();
-                particles = [];
-                const count = Math.min(80, Math.floor(canvas.width * canvas.height / 7000));
-                for (let i = 0; i < count; i++) particles.push(createParticle());
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    p.pulse += p.pulseSpeed;
-
-                    if (mouse.x !== null) {
-                        const dx = mouse.x - p.x,
-                            dy = mouse.y - p.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 150) {
-                            p.x -= dx * 0.005;
-                            p.y -= dy * 0.005;
-                        }
-                    }
-
-                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
-                    const po = p.opacity * (0.5 + 0.5 * Math.sin(p.pulse));
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `hsla(${p.hue}, 70%, 70%, ${po})`;
-                    ctx.fill();
-
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const p2 = particles[j];
-                        const dx = p.x - p2.x,
-                            dy = p.y - p2.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 100) {
-                            ctx.beginPath();
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.strokeStyle = `hsla(${p.hue}, 60%, 60%, ${0.04 * (1 - dist / 100)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                }
-                requestAnimationFrame(animate);
-            }
-
-            init();
-            animate();
-            window.addEventListener('resize', init);
-        });
-    </script>
 </section>
 
 {{-- Stats Bar --}}
-<section class="bg-linear-to-r from-primary-700 via-primary-600 to-accent-600 py-14">
+<section class="defer-section bg-linear-to-r from-primary-700 via-primary-600 to-accent-600 py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16">
             @foreach([['20+', 'Years Experience'], ['150+', 'Happy Clients'], ['300+', 'Projects Completed'], ['15+', 'Countries Served']] as $stat)
@@ -269,7 +168,7 @@
 </section>
 
 {{-- Services --}}
-<section class="py-24 bg-linear-to-br from-white via-primary-50/30 to-accent-50/20">
+<section class="defer-section py-24 bg-linear-to-br from-white via-primary-50/30 to-accent-50/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-sm font-medium mb-4">
@@ -303,7 +202,7 @@
 </section>
 
 {{-- Why Choose Us --}}
-<section class="relative py-28 bg-linear-to-br from-surface-950 via-primary-950 to-surface-900 overflow-hidden">
+<section class="defer-section relative py-28 bg-linear-to-br from-surface-950 via-primary-950 to-surface-900 overflow-hidden">
     {{-- Decorative elements --}}
     <div class="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-primary-500/30 to-transparent"></div>
     <div class="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-accent-500/30 to-transparent"></div>
@@ -360,7 +259,7 @@
 </section>
 
 {{-- Tech Stack --}}
-<section class="py-20 bg-linear-to-b from-primary-50/60 via-white to-accent-50/30 border-y border-primary-100/50 overflow-hidden">
+<section class="defer-section py-20 bg-linear-to-b from-primary-50/60 via-white to-accent-50/30 border-y border-primary-100/50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 reveal">
         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-sm font-medium mb-4">
             <i class="ph ph-code"></i> Our Stack
@@ -411,7 +310,7 @@
 </section>
 
 {{-- Portfolio --}}
-<section class="py-28 bg-linear-to-b from-surface-50 via-white to-surface-50 overflow-hidden">
+<section class="defer-section py-28 bg-linear-to-b from-surface-50 via-white to-surface-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <div class="max-w-2xl reveal">
@@ -518,7 +417,7 @@
 </section>
 
 {{-- Testimonials --}}
-<section class="py-24 bg-linear-to-br from-accent-50/30 via-white to-primary-50/30">
+<section class="defer-section py-24 bg-linear-to-br from-accent-50/30 via-white to-primary-50/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 text-accent-600 text-sm font-medium mb-4">
@@ -559,7 +458,7 @@
 </section>
 
 {{-- Pricing --}}
-<section class="py-24 bg-surface-50">
+<section class="defer-section py-24 bg-surface-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 text-green-600 text-sm font-medium mb-4">
@@ -613,7 +512,7 @@
 </section>
 
 {{-- Clients Section - Dark Cinematic with Parallax --}}
-<section class="relative py-24 bg-linear-to-br from-surface-950 via-surface-900 to-primary-950 overflow-hidden" x-data="{ offsetY: 0 }" @scroll.window="offsetY = window.scrollY" id="clients-section">
+<section class="defer-section relative py-24 bg-linear-to-br from-surface-950 via-surface-900 to-primary-950 overflow-hidden" id="clients-section">
     {{-- Animated Background Image --}}
     <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse at 20% 50%, rgba(88, 86, 214, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(8, 185, 155, 0.15) 0%, transparent 50%); transform: translateY(calc(var(--scroll-y, 0px) * 0.5));"></div>
 
@@ -664,57 +563,11 @@
             </div>
             @endforeach
         </div>
-
-        {{-- Stats row --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            @foreach([
-            ['150+', 'Happy Clients', 'ph-users-three', 'from-primary-500 to-primary-600'],
-            ['15+', 'Countries Served', 'ph-globe-hemisphere-west', 'from-accent-500 to-accent-600'],
-            ['500+', 'Projects Delivered', 'ph-folder-open', 'from-blue-500 to-blue-600'],
-            ['99%', 'Client Satisfaction', 'ph-heart', 'from-pink-500 to-pink-600'],
-            ] as $stat)
-            <div class="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 reveal">
-                <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-linear-to-br {{ $stat[3] }} flex items-center justify-center">
-                    <i class="ph {{ $stat[2] }} text-white text-lg"></i>
-                </div>
-                <div class="text-2xl lg:text-3xl font-display font-bold text-white mb-1">{{ $stat[0] }}</div>
-                <p class="text-xs text-white/40 uppercase tracking-wider">{{ $stat[1] }}</p>
-            </div>
-            @endforeach
-        </div>
     </div>
 </section>
 
-<script>
-    // Parallax effect for clients section
-    document.addEventListener('DOMContentLoaded', function() {
-        const clientsSection = document.getElementById('clients-section');
-        if (!clientsSection) return;
-
-        function updateParallax() {
-            const offsetY = window.scrollY;
-            clientsSection.style.setProperty('--scroll-y', offsetY + 'px');
-        }
-
-        // Update on scroll with requestAnimationFrame for better performance
-        let ticking = false;
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-            ticking = false;
-        }, {
-            passive: true
-        });
-
-        // Initial call
-        updateParallax();
-    });
-</script>
-
 {{-- FAQ --}}
-<section class="py-24 bg-surface-50">
+<section class="defer-section py-24 bg-surface-50">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 reveal">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-sm font-medium mb-4">
@@ -736,51 +589,11 @@
                     <span class="font-semibold text-surface-900 text-sm pr-4">{{ $faq[0] }}</span>
                     <i class="ph ph-caret-down text-surface-400 transition-transform duration-200 shrink-0" :class="open === {{ $index }} && 'rotate-180'"></i>
                 </button>
-                <div x-show="open === {{ $index }}" x-collapse>
+                <div x-show="open === {{ $index }}" x-cloak style="display: none;" x-collapse>
                     <div class="px-5 pb-5 text-sm text-surface-500 leading-relaxed">{{ $faq[1] }}</div>
                 </div>
             </div>
             @endforeach
-        </div>
-    </div>
-</section>
-
-{{-- Blog Preview --}}
-<section class="py-24 bg-linear-to-br from-white via-accent-50/20 to-primary-50/20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 text-accent-600 text-sm font-medium mb-4">
-                <i class="ph ph-pen-nib"></i> From Our Blog
-            </span>
-            <h2 class="text-4xl font-display font-bold text-surface-900 mb-4">Latest <span class="gradient-text">Insights</span></h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-            @foreach([
-            ['The Future of Web Development: Trends Shaping 2026', 'Explore groundbreaking web development trends from AI interfaces to edge computing.', 'Mar 1, 2026', 'Web Dev', 'from-blue-50 to-cyan-50'],
-            ['SEO Strategies for Zero-Click Searches', 'Optimize for featured snippets and maintain visibility in a zero-click world.', 'Feb 24, 2026', 'SEO', 'from-green-50 to-teal-50'],
-            ['Why Your Business Needs a Mobile App in 2026', 'Mobile apps are essential. Here are compelling reasons to invest now.', 'Feb 12, 2026', 'Mobile', 'from-purple-50 to-pink-50'],
-            ] as $post)
-            <article class="group rounded-2xl overflow-hidden bg-white border border-surface-200 hover:shadow-lg transition-all reveal">
-                <div class="aspect-16/10 bg-linear-to-br {{ $post[4] }} flex items-center justify-center p-6">
-                    <h3 class="text-base font-display font-bold text-surface-800 text-center leading-snug group-hover:text-primary-700 transition-colors">{{ $post[0] }}</h3>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-3 text-xs text-surface-400 mb-3">
-                        <span>{{ $post[2] }}</span>
-                        <span class="px-2 py-0.5 rounded bg-primary-50 text-primary-600 text-[10px] font-medium">{{ $post[3] }}</span>
-                    </div>
-                    <p class="text-sm text-surface-500 leading-relaxed mb-4 line-clamp-2">{{ $post[1] }}</p>
-                    <a href="{{ route('blog') }}" class="inline-flex items-center gap-1 text-sm font-medium text-primary-600 group-hover:gap-2 transition-all">
-                        Read More <i class="ph ph-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </article>
-            @endforeach
-        </div>
-        <div class="text-center mt-12 reveal">
-            <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 px-7 py-3.5 border border-surface-200 text-surface-700 font-semibold rounded-lg hover:bg-surface-50 transition-all">
-                View All Articles <i class="ph ph-arrow-right"></i>
-            </a>
         </div>
     </div>
 </section>

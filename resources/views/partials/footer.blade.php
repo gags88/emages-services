@@ -4,8 +4,6 @@
     {{-- CTA Banner --}}
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div class="relative rounded-3xl bg-linear-to-br from-primary-600 via-primary-700 to-accent-600 p-10 lg:p-14 overflow-hidden" id="cta-banner">
-            {{-- Animated particles canvas --}}
-            <canvas id="cta-particles" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
             {{-- Decorative gradient orbs --}}
             <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-accent-400/20 blur-3xl animate-pulse"></div>
             <div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-primary-400/20 blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
@@ -34,105 +32,6 @@
             </div>
         </div>
     </div>
-
-    {{-- Particle animation script --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('cta-particles');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let animationId;
-
-            function resize() {
-                const rect = canvas.parentElement.getBoundingClientRect();
-                canvas.width = rect.width;
-                canvas.height = rect.height;
-            }
-
-            function createParticle() {
-                return {
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 2.5 + 0.5,
-                    speedX: (Math.random() - 0.5) * 0.5,
-                    speedY: (Math.random() - 0.5) * 0.5,
-                    opacity: Math.random() * 0.5 + 0.1,
-                    pulse: Math.random() * Math.PI * 2,
-                    pulseSpeed: Math.random() * 0.02 + 0.005
-                };
-            }
-
-            function init() {
-                resize();
-                particles = [];
-                const count = Math.min(60, Math.floor(canvas.width * canvas.height / 8000));
-                for (let i = 0; i < count; i++) {
-                    particles.push(createParticle());
-                }
-            }
-
-            function drawParticle(p) {
-                const pulsedOpacity = p.opacity * (0.6 + 0.4 * Math.sin(p.pulse));
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${pulsedOpacity})`;
-                ctx.fill();
-            }
-
-            function drawLines() {
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 120) {
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(255, 255, 255, ${0.06 * (1 - dist / 120)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    p.pulse += p.pulseSpeed;
-                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-                    drawParticle(p);
-                });
-                drawLines();
-                animationId = requestAnimationFrame(animate);
-            }
-
-            // Intersection Observer: only animate when visible
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (!animationId) animate();
-                    } else {
-                        cancelAnimationFrame(animationId);
-                        animationId = null;
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            init();
-            observer.observe(canvas.parentElement);
-            window.addEventListener('resize', () => {
-                resize();
-            });
-        });
-    </script>
 
     {{-- Main Footer --}}
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
