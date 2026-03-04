@@ -57,6 +57,9 @@ jobs:
             COMPOSER_PATH=$(which composer 2>/dev/null || echo "/usr/local/bin/composer")
             echo "Composer path: $COMPOSER_PATH"
 
+            # Remove cached platform check from previous installs
+            rm -f vendor/composer/platform_check.php
+
             $PHP_BIN $COMPOSER_PATH install --no-dev --no-interaction --optimize-autoloader
 
             $PHP_BIN artisan migrate --force
