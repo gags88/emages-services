@@ -12,6 +12,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Build frontend assets
+        run: |
+          npm ci
+          npm run build
+
       - name: Configure Git
         run: |
           git config --global user.email "gagandeep.sharma88@gmail.com"
@@ -20,7 +31,7 @@ jobs:
       - name: Sync files to server
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avz --delete --exclude='.env' --exclude='vendor/' --exclude='node_modules/' --exclude='storage/app/' --exclude='storage/logs/' --exclude='storage/framework/sessions/' --exclude='storage/framework/cache/' --exclude='.git/' --exclude='public/build/' --exclude='public/storage'
+          switches: -avz --delete --exclude='.env' --exclude='vendor/' --exclude='node_modules/' --exclude='storage/app/' --exclude='storage/logs/' --exclude='storage/framework/sessions/' --exclude='storage/framework/cache/' --exclude='.git/' --exclude='public/storage'
           path: ./
           remote_path: /home/u464987102/domains/emagessoft.com/emages_soft
           remote_host: 147.93.23.145
@@ -36,16 +47,15 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: 65002
           script: |
-            export PHP=/opt/alt/php83/usr/bin/php
+            export PATH=/opt/alt/php83/usr/bin:$PATH
             cd /home/u464987102/domains/emagessoft.com/emages_soft
 
-            $PHP $(which composer) install --no-dev --no-interaction --optimize-autoloader
+            php $(which composer) install --no-dev --no-interaction --optimize-autoloader
 
-            $PHP artisan migrate --force
-            $PHP artisan optimize:clear
-            $PHP artisan config:cache
-            $PHP artisan route:cache
-            $PHP artisan view:cache
-            $PHP artisan filament:cache-components
+            php artisan migrate --force
+            php artisan optimize:clear
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
 
             echo "Deployment complete!"
