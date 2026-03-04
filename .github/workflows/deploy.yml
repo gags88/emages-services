@@ -1,0 +1,51 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "gagandeep.sharma88@gmail.com"
+          git config --global user.name "Gagandeep Sharma"
+
+      - name: Sync files to server
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avz --delete --exclude='.env' --exclude='vendor/' --exclude='node_modules/' --exclude='storage/app/' --exclude='storage/logs/' --exclude='storage/framework/sessions/' --exclude='storage/framework/cache/' --exclude='.git/' --exclude='public/build/' --exclude='public/storage'
+          path: ./
+          remote_path: /home/u464987102/domains/emagessoft.com/emages_soft
+          remote_host: 147.93.23.145
+          remote_port: 65002
+          remote_user: u464987102
+          remote_key: ${{ secrets.HOSTINGER_SSH_KEY }}
+
+      - name: Run post-deploy commands
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 147.93.23.145
+          username: u464987102
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: 65002
+          script: |
+            export PHP=/opt/alt/php83/usr/bin/php
+            cd /home/u464987102/domains/emagessoft.com/emages_soft
+
+            $PHP $(which composer) install --no-dev --no-interaction --optimize-autoloader
+
+            $PHP artisan migrate --force
+            $PHP artisan optimize:clear
+            $PHP artisan config:cache
+            $PHP artisan route:cache
+            $PHP artisan view:cache
+            $PHP artisan filament:cache-components
+
+            echo "Deployment complete!"
