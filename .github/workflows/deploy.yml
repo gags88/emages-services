@@ -76,10 +76,17 @@ jobs:
             # Remove cached platform check from previous installs
             rm -f vendor/composer/platform_check.php
 
+            # Clear ALL caches first
+            $PHP_BIN artisan optimize:clear
+            $PHP_BIN artisan route:clear
+            $PHP_BIN artisan config:clear
+            $PHP_BIN artisan view:clear
+
             $PHP_BIN $COMPOSER_PATH install --no-dev --no-interaction --optimize-autoloader
 
             $PHP_BIN artisan migrate --force
-            $PHP_BIN artisan optimize:clear
+
+            # Rebuild caches after everything is in place
             $PHP_BIN artisan config:cache
             $PHP_BIN artisan route:cache
             $PHP_BIN artisan view:cache
